@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Smart US Ecommerce Brands Are Quietly Building Teams in Ethiopia | HibLink Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- Light Theme Design System ----- */
+    :root {
+      /* Base Light Surfaces */
+      --color-white: #ffffff;
+      --color-gray-50:  oklch(98% 0.005 264.665);
+      --color-gray-100: oklch(95% 0.008 264.665);
+      --color-gray-200: oklch(88% 0.012 264.665);
+      --color-gray-300: oklch(78% 0.015 264.665);
+      --color-gray-400: oklch(65% 0.020 264.665);
+      --color-gray-500: oklch(50% 0.025 264.665);
+      --color-gray-600: oklch(40% 0.028 264.665);
+      --color-gray-700: oklch(30% 0.030 264.665);
+      --color-gray-800: oklch(22% 0.032 264.665);
+      --color-gray-900: oklch(15% 0.034 264.665);
+      --color-black: #0a0a0f;
+
+      /* Accent Rainbow (Hugo style) */
+      --accent-indigo: oklch(45% 0.22 280);
+      --accent-orange: oklch(64.6% 0.222 41.116);
+      --accent-green:  oklch(62% 0.19 145);
+      --accent-blue:   oklch(55% 0.18 260);
+      --accent-red:    oklch(55% 0.24 28);
+
+      /* Spacing & Radius */
+      --radius-card: 32px;
+      --radius-button: 60px;
+      --radius-pill: 100px;
+      --container-width: 1280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-gray-50);
+      color: var(--color-gray-800);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-gray-900);
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Glassmorphism – now light with blur */
+    .glass {
+      background: oklch(100% 0 0 / 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      background: var(--accent-indigo);
+      color: white;
+      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px oklch(45% 0.22 280 / 0.3);
+      background: oklch(50% 0.24 280);
+    }
+
+    .btn-orange {
+      background: var(--accent-orange);
+      box-shadow: 0 8px 20px oklch(64.6% 0.222 41.116 / 0.2);
+    }
+    .btn-orange:hover {
+      background: oklch(70% 0.23 41);
+    }
+
+    /* Bento Grid Cards */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .bento-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      border: 1px solid var(--color-gray-200);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .bento-card:hover {
+      border-color: var(--accent-indigo);
+      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.05);
+      transform: translateY(-4px);
+    }
+
+    /* Logo Ticker */
+    .logo-ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 20px 0;
+      mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+    }
+
+    .logo-ticker {
+      display: inline-flex;
+      animation: scroll 25s linear infinite;
+    }
+
+    .logo-ticker img {
+      height: 32px;
+      margin: 0 30px;
+      filter: grayscale(1) brightness(0.4);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .logo-ticker img:hover {
+      opacity: 1;
+      filter: grayscale(0) brightness(1);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Trend badges */
+    .trend-up {
+      background: oklch(62% 0.19 145 / 0.1);
+      color: var(--accent-green);
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    .trend-breakout {
+      background: oklch(64.6% 0.222 41.116 / 0.1);
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    /* Quote block */
+    .quote-block {
+      background: var(--color-gray-100);
+      border-left: 6px solid var(--accent-red);
+      padding: 32px 36px;
+      border-radius: 24px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 40px 0;
+      color: var(--color-gray-800);
+    }
+
+    /* Comparison grid */
+    .comparison-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+
+    .hero .highlight {
+      color: var(--accent-orange);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+      color: var(--color-gray-900);
+    }
+
+    /* Booking Popup Styles */
+    .booking-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .booking-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .booking-modal {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .booking-overlay.active .booking-modal {
+      transform: translateY(0);
+    }
+
+    .booking-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--color-gray-500);
+      transition: color 0.2s;
+    }
+
+    .booking-close:hover {
+      color: var(--color-gray-800);
+    }
+
+    .booking-form-group {
+      margin-bottom: 20px;
+    }
+
+    .booking-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--color-gray-700);
+    }
+
+    .booking-form-group input,
+    .booking-form-group textarea,
+    .booking-form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border-color 0.2s;
+      background: var(--color-white);
+    }
+
+    .booking-form-group input:focus,
+    .booking-form-group textarea:focus,
+    .booking-form-group select:focus {
+      outline: none;
+      border-color: var(--accent-indigo);
+      box-shadow: 0 0 0 3px oklch(45% 0.22 280 / 0.1);
+    }
+
+    .booking-form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .booking-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent-orange);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    .booking-submit:hover {
+      background: oklch(70% 0.23 41);
+      transform: translateY(-1px);
+    }
+
+    .booking-submit:active {
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .comparison-2col {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .booking-modal {
+        width: 95%;
+        padding: 24px;
+      }
+    }
+
+    .text-accent-indigo { color: var(--accent-indigo); }
+    .text-accent-orange { color: var(--accent-orange); }
+    .text-accent-green { color: var(--accent-green); }
+    .bg-white { background: var(--color-white); }
+  </style>
+</head>
+<body>
+
+<!-- Glass Navigation -->
+<nav class="glass" style="position: sticky; top: 0; z-index: 50; padding: 16px 0;">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-weight: 800; font-size: 1.8rem; color: var(--color-gray-900); letter-spacing: -0.02em;"><a href="index.html" style="text-decoration: none; color: inherit;">HibLink <span style="color: var(--accent-orange);">Tech</span></a></div>
+    <button class="btn" style="padding: 10px 24px; font-size: 1rem;" onclick="openBookingModal()">Book Consultation →</button>
+  </div>
+</nav>
+
+<main class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <h1>
+      Why Smart US Ecommerce Brands Are Quietly Building Teams in <span class="highlight">Ethiopia</span>
+    </h1>
+    <p style="font-size: 1.25rem; max-width: 700px; color: var(--color-gray-600); margin-bottom: 32px;">
+      The global talent map is being redrawn. And the smartest founders are looking somewhere unexpected.
+    </p>
+    <button class="btn btn-orange" onclick="openBookingModal()">Book a Free Consultation →</button>
+  </section>
+
+  <!-- Logo Ticker -->
+  <div class="logo-ticker-wrap">
+    <div class="logo-ticker">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify" style="height:28px;">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EKLAVIYO%3C/text%3E%3C/svg%3E" alt="Klaviyo">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EGORGIAS%3C/text%3E%3C/svg%3E" alt="Gorgias">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ERECHARGE%3C/text%3E%3C/svg%3E" alt="Recharge">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section style="margin: 80px 0;">
+    <h2 class="section-title">The Global Talent Dilemma</h2>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 32px;">
+      For the past decade, US ecommerce brands looking to scale operations without breaking the bank have defaulted to two options: hire locally and absorb the high salary and benefit costs, or outsource to familiar talent hubs like the Philippines or India.
+    </p>
+    
+    <div class="bento-grid">
+      <div class="bento-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--accent-red);">❌ Local Hires</h3>
+        <p style="color: var(--color-gray-600);">Average US-based customer support or operations associate costs $45,000–$65,000 annually in salary alone—before benefits, payroll taxes, equipment, and management overhead.</p>
+      </div>
+      <div class="bento-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--accent-red);">❌ Offshore Teams</h3>
+        <p style="color: var(--color-gray-600);">Time zone chaos, communication gaps, and talent pools that are increasingly competitive and expensive as global demand soars.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">🌍 The Ethiopia Advantage</h2>
+    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 40px; border: 1px solid var(--color-gray-200); box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">🎓 60,000+ University Graduates</h3>
+          <p style="color: var(--color-gray-700);">Ethiopia has one of the fastest-growing higher education systems in Africa. English is the language of instruction from secondary school onward.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">⏰ GMT+3 Time Zone</h3>
+          <p style="color: var(--color-gray-700);">Near-perfect overlap with US business hours. When a customer emails at 10am ET, your VA is at their desk, awake, and ready to respond.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">💰 40-60% Cost Savings</h3>
+          <p style="color: var(--color-gray-700);">Full-time HibLink professional starts at $1,500/month vs $4,500/month for US hire. That's $36,000 annual savings per role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Time Zone Chart -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">⏰ The Time Zone Sweet Spot</h2>
+    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 30px; border: 1px solid var(--color-gray-200);">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-gray-200);">
+            <th style="text-align: left; padding: 12px; font-weight: 700;">US Time Zone</th>
+            <th style="text-align: left; padding: 12px; font-weight: 700;">Addis Ababa Time (GMT+3)</th>
+            <th style="text-align: left; padding: 12px; font-weight: 700;">Overlap Window</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-gray-100);">
+            <td style="padding: 12px;">Eastern (ET)</td>
+            <td style="padding: 12px;">7 hours ahead</td>
+            <td style="padding: 12px;">8am ET = 3pm Addis → Full morning/early afternoon coverage</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-gray-100);">
+            <td style="padding: 12px;">Central (CT)</td>
+            <td style="padding: 12px;">8 hours ahead</td>
+            <td style="padding: 12px;">8am CT = 4pm Addis → Full morning coverage</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;">Pacific (PT)</td>
+            <td style="padding: 12px;">10 hours ahead</td>
+            <td style="padding: 12px;">8am PT = 6pm Addis → Morning coverage with slight overlap</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- The HibLink Difference -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">🛡️ The HibLink Difference</h2>
+    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 40px; border: 1px solid var(--color-gray-200); box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">✓ Certified, Not Just Hired</h3>
+          <p style="color: var(--color-gray-700);">Every HibLink professional goes through our internal Ecommerce Operations Academy before they ever touch a client's store.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">✓ Redundancy Built-In</h3>
+          <p style="color: var(--color-gray-700);">Primary VA + Backup + AI assistant. If one goes down, the others pick up instantly.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">✓ 95% Retention Rate</h3>
+          <p style="color: var(--color-gray-700);">Our clients stay because the people we place actually deliver—from the very first week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <h2 class="section-title">📊 Traditional vs HibLink Ethiopia</h2>
+  <div class="comparison-2col">
+    <div class="bento-card" style="background: var(--color-gray-100);">
+      <h3 style="color: var(--accent-red);">❌ Traditional Outsourcing</h3>
+      <ul style="list-style: none; color: var(--color-gray-700);">
+        <li>✕ Single point of failure</li>
+        <li>✕ You own all training costs</li>
+        <li>✕ Knowledge leaves with them</li>
+        <li>✕ 85% annual turnover</li>
+        <li>✕ Time zone chaos</li>
+      </ul>
+    </div>
+    <div class="bento-card" style="border: 2px solid var(--accent-green);">
+      <h3 style="color: var(--accent-green);">✅ HibLink Ethiopia</h3>
+      <ul style="list-style: none; color: var(--color-gray-800);">
+        <li>✓ Team-based redundancy</li>
+        <li>✓ We handle all training</li>
+        <li>✓ Institutional knowledge stays</li>
+        <li>✓ 95% retention rate</li>
+        <li>✓ Real-time GMT+3 coverage</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background: var(--color-gray-100); border-radius: var(--radius-card); padding: 60px 40px; text-align: center; border: 1px solid var(--color-gray-200); margin: 40px 0 80px;">
+    <h2 style="font-size: 2.6rem; color: var(--color-gray-900);">⚡ Ready to Build Your Ethiopia Team?</h2>
+    <p style="color: var(--color-gray-600); margin-bottom: 32px;">See how an Ethiopian team can transform your ecommerce operations.</p>
+    <button class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;" onclick="openBookingModal()">Book a Free Consultation →</button>
+  </div>
+
+  <footer style="border-top: 1px solid var(--color-gray-200); padding: 40px 0; color: var(--color-gray-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <div>© 2026 HibLink Tech — The Ecommerce Operations Partner</div>
+    <div style="display: flex; gap: 20px;">
+      <a href="blog1.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 1</a>
+      <a href="blog2.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 2</a>
+    </div>
+    <div>Data: Ethiopian Investment Holdings, Global Talent Reports</div>
+  </footer>
+</main>
+
+<!-- Booking Modal -->
+<div class="booking-overlay" id="bookingOverlay">
+  <div class="booking-modal">
+    <button class="booking-close" onclick="closeBookingModal()">&times;</button>
+    <h2 style="margin-bottom: 20px; color: var(--color-gray-900);">Book Your Free Consultation</h2>
+    <p style="color: var(--color-gray-600); margin-bottom: 30px;">Schedule a 30-minute call to discuss how an Ethiopian team can transform your ecommerce operations.</p>
+    
+    <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+      <div class="booking-form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com">
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required placeholder="Your company name">
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="website">Website URL</label>
+        <input type="url" id="website" name="website" required placeholder="https://yourstore.com">
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="monthlyRevenue">Monthly Revenue</label>
+        <select id="monthlyRevenue" name="monthlyRevenue" required>
+          <option value="">Select your monthly revenue range</option>
+          <option value="$5k-$20k">$5,000 - $20,000</option>
+          <option value="$20k-$50k">$20,000 - $50,000</option>
+          <option value="$50k-$100k">$50,000 - $100,000</option>
+          <option value="$100k-$250k">$100,000 - $250,000</option>
+          <option value="$250k-$500k">$250,000 - $500,000</option>
+          <option value="$500k+">$500,000+</option>
+        </select>
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="currentTeam">Current Team Size</label>
+        <select id="currentTeam" name="currentTeam" required>
+          <option value="">Select your current team size</option>
+          <option value="1-5">1-5 employees</option>
+          <option value="6-15">6-15 employees</option>
+          <option value="16-30">16-30 employees</option>
+          <option value="31-50">31-50 employees</option>
+          <option value="50+">50+ employees</option>
+        </select>
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="interests">Areas of Interest</label>
+        <select id="interests" name="interests" multiple size="4" required>
+          <option value="Customer Support">Customer Support</option>
+          <option value="Order Management">Order Management</option>
+          <option value="Inventory Management">Inventory Management</option>
+          <option value="Marketing Operations">Marketing Operations</option>
+          <option value="Data Analysis">Data Analysis</option>
+          <option value="Social Media Management">Social Media Management</option>
+        </select>
+        <small style="color: var(--color-gray-500); display: block; margin-top: 4px;">Hold Ctrl/Cmd to select multiple options</small>
+      </div>
+      
+      <div class="booking-form-group">
+        <label for="message">Additional Notes</label>
+        <textarea id="message" name="message" placeholder="Tell us about your specific needs and goals..."></textarea>
+      </div>
+      
+      <button type="submit" class="booking-submit">Schedule My Free Consultation</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Booking Modal Functions
+  function openBookingModal() {
+    document.getElementById('bookingOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBookingModal() {
+    document.getElementById('bookingOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleBookingSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Format selected interests
+    const interestsSelect = document.getElementById('interests');
+    const selectedInterests = Array.from(interestsSelect.selectedOptions).map(option => option.value);
+    data.interests = selectedInterests.join(', ');
+    
+    // Create summary message
+    const summary = `
+Booking Request Submitted Successfully!
+
+📋 Client Information:
+• Name: ${data.name}
+• Email: ${data.email}
+• Company: ${data.company}
+• Website: ${data.website}
+
+📊 Business Details:
+• Monthly Revenue: ${data.monthlyRevenue}
+• Team Size: ${data.currentTeam}
+• Areas of Interest: ${data.interests}
+
+💬 Additional Notes:
+${data.message || 'No additional notes provided.'}
+
+✅ Next Steps:
+Our team will review your request and contact you within 24 hours to schedule your consultation. We'll discuss your specific needs and how our Ethiopian team can help scale your ecommerce operations.
+
+Thank you for choosing HibLink Tech!
+    `;
+    
+    // Show success message
+    alert(summary);
+    
+    // Reset form and close modal
+    event.target.reset();
+    closeBookingModal();
+    
+    // In a real implementation, you would send this data to your server here
+    console.log('Booking data:', data);
+  }
+
+  // Close modal when clicking outside
+  document.getElementById('bookingOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeBookingModal();
+    }
+  });
+
+  // Close modal on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeBookingModal();
+    }
+  });
+</script>
+</body>
+</html>
