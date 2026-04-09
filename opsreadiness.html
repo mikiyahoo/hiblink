@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ops Readiness Diagnostic | HibLink Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Light Theme */
+    :root {
+      --color-white: #ffffff;
+      --color-gray-50:  oklch(98% 0.005 264.665);
+      --color-gray-100: oklch(95% 0.008 264.665);
+      --color-gray-200: oklch(88% 0.012 264.665);
+      --color-gray-300: oklch(78% 0.015 264.665);
+      --color-gray-400: oklch(65% 0.020 264.665);
+      --color-gray-500: oklch(50% 0.025 264.665);
+      --color-gray-600: oklch(40% 0.028 264.665);
+      --color-gray-700: oklch(30% 0.030 264.665);
+      --color-gray-800: oklch(22% 0.032 264.665);
+      --color-gray-900: oklch(15% 0.034 264.665);
+
+      --accent-indigo: oklch(45% 0.22 280);
+      --accent-orange: oklch(64.6% 0.222 41.116);
+      --accent-green:  oklch(62% 0.19 145);
+      --accent-blue:   oklch(55% 0.18 260);
+      --accent-red:    oklch(55% 0.24 28);
+
+      --radius-card: 32px;
+      --radius-button: 60px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--color-gray-50);
+      color: var(--color-gray-800);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 24px;
+    }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; color: var(--color-gray-900); }
+    .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+    .glass-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      border: 1px solid var(--color-gray-200);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      background: var(--accent-indigo);
+      color: white;
+      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
+    }
+    .btn:hover { transform: scale(1.02); background: oklch(50% 0.24 280); }
+    .btn-orange { background: var(--accent-orange); }
+    .btn-orange:hover { background: oklch(70% 0.23 41); }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--color-gray-300);
+      box-shadow: none;
+      color: var(--color-gray-700);
+    }
+    .btn-outline:hover { background: var(--color-gray-100); border-color: var(--accent-indigo); }
+
+    .progress-container { margin-bottom: 32px; }
+    .progress-label { display: flex; justify-content: space-between; color: var(--color-gray-500); }
+    .progress-bar-bg { height: 8px; background: var(--color-gray-200); border-radius: 20px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-orange)); border-radius: 20px; transition: width 0.3s; }
+
+    .quiz-question { margin-bottom: 40px; }
+    .quiz-question h2 { font-size: 1.8rem; margin-bottom: 24px; }
+    .options { display: flex; flex-direction: column; gap: 12px; }
+    .option {
+      background: var(--color-gray-50);
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: 20px;
+      padding: 18px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: 0.15s;
+    }
+    .option:hover { background: var(--color-gray-100); border-color: var(--accent-indigo); }
+    .option.selected { background: oklch(45% 0.22 280 / 0.06); border-color: var(--accent-indigo); }
+    .option input { display: none; }
+    .option-indicator {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2px solid var(--color-gray-400);
+      margin-right: 18px; flex-shrink: 0;
+    }
+    .option.selected .option-indicator {
+      border-color: var(--accent-indigo);
+      background: var(--accent-indigo);
+      box-shadow: 0 0 0 4px oklch(45% 0.22 280 / 0.15);
+    }
+    .option-text { font-size: 1.1rem; color: var(--color-gray-800); }
+
+    .result-card {
+      margin-top: 30px; padding: 32px; background: var(--color-gray-50);
+      border-radius: 24px; border-left: 6px solid var(--accent-green);
+    }
+    .score-display { font-size: 4rem; font-weight: 800; color: var(--color-gray-900); }
+    .tier-name { font-size: 2rem; font-weight: 700; margin: 12px 0 8px; }
+    .result-desc { color: var(--color-gray-600); margin-bottom: 24px; }
+
+    .nav-logo { display: flex; gap: 16px; margin-bottom: 24px; align-items: center; }
+    .nav-logo a { color: var(--color-gray-500); text-decoration: none; }
+    .hidden { display: none !important; }
+
+    @media (max-width: 600px) { .glass-card { padding: 28px 20px; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="nav-logo">
+    <a href="#" onclick="history.back()">← Back to Report</a>
+    <span style="color: var(--color-gray-400);">|</span>
+    <span style="font-weight: 700; color: var(--color-gray-900);">HibLink <span style="color: var(--accent-orange);">Ops Diagnostic</span></span>
+  </div>
+
+  <div class="glass-card">
+    <div style="margin-bottom: 32px;">
+      <h1 style="font-size: 2.4rem;">⚡ Ops Readiness Diagnostic</h1>
+      <p style="color: var(--color-gray-500);">2 minutes • 5 questions • Personalized report</p>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-label"><span id="questionCounter">Question 1 of 5</span><span id="progressPercent">0%</span></div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    </div>
+
+    <div id="quizSection">
+      <div id="questionsContainer"></div>
+      <div style="display: flex; gap: 16px; margin-top: 32px;">
+        <button class="btn btn-outline" id="prevBtn" disabled>← Previous</button>
+        <button class="btn" id="nextBtn">Next →</button>
+        <button class="btn btn-orange hidden" id="submitBtn">See My Results</button>
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden">
+      <div class="result-card">
+        <div class="score-display" id="scoreDisplay">0</div>
+        <div class="tier-name" id="tierDisplay">Calculating...</div>
+        <div class="result-desc" id="recDisplay"></div>
+        <a href="#" class="btn btn-orange" id="ctaLink">Book a Free Ops Audit →</a>
+        <button class="btn btn-outline" id="restartBtn" style="margin-top: 24px; margin-left: 12px;">Retake Diagnostic</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const questions = [
+      { text: "How do you currently handle customer service emails/tickets?", options: [ { text: "I do it all myself.", weight: 5 }, { text: "I have a VA/freelancer, but I still check daily.", weight: 4 }, { text: "Small in-house team, overwhelmed.", weight: 3 }, { text: "BPO/agency, time zone lag is killing us.", weight: 2 }, { text: "Fully optimized managed team.", weight: 0 } ] },
+      { text: "How many hours per week do YOU spend on admin?", options: [ { text: "20+ hours (drowning).", weight: 5 }, { text: "10-20 hours.", weight: 4 }, { text: "5-10 hours.", weight: 3 }, { text: "2-5 hours.", weight: 2 }, { text: "Less than 2 hours.", weight: 0 } ] },
+      { text: "If your primary support quit tomorrow?", options: [ { text: "Absolute chaos.", weight: 5 }, { text: "Major stress, 2+ weeks to replace.", weight: 4 }, { text: "Annoying, backup plan sort of.", weight: 3 }, { text: "SOP + backup VA ready.", weight: 1 }, { text: "Redundancy built in.", weight: 0 } ] },
+      { text: "Average support response time?", options: [ { text: "Over 24 hours.", weight: 5 }, { text: "12-24 hours.", weight: 4 }, { text: "4-12 hours.", weight: 3 }, { text: "1-4 hours.", weight: 2 }, { text: "Under 1 hour.", weight: 0 } ] },
+      { text: "Primary selling platform?", options: [ { text: "Shopify", weight: 1 }, { text: "Amazon", weight: 1 }, { text: "WooCommerce/Other", weight: 0 }, { text: "Multiple channels", weight: 2 } ] }
+    ];
+    const resultsTiers = [
+      { min:0, max:6, tier:"Ops Ninja", headline:"Your operations are solid.", rec:"Download our free checklist.", cta:"Get Checklist", ctaLink:"#checklist" },
+      { min:7, max:13, tier:"Growth Pains", headline:"Admin is starting to hurt.", rec:"Book a 15-min Ops Audit.", cta:"Book Audit", ctaLink:"#audit" },
+      { min:14, max:20, tier:"Red Zone", headline:"Working IN the business.", rec:"You're losing 10-20 hrs/week.", cta:"Explore Support Node", ctaLink:"#node" },
+      { min:21, max:27, tier:"Critical Overwhelm", headline:"Bleeding time and money.", rec:"Deploy a trained team in 7 days.", cta:"Emergency Call", ctaLink:"#emergency" }
+    ];
+
+    let currentQIndex = 0;
+    const answers = new Array(5).fill(null);
+    const quizSection = document.getElementById('quizSection');
+    const resultSection = document.getElementById('resultSection');
+    const questionsContainer = document.getElementById('questionsContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const progressFill = document.getElementById('progressFill');
+    const questionCounter = document.getElementById('questionCounter');
+    const progressPercent = document.getElementById('progressPercent');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const tierDisplay = document.getElementById('tierDisplay');
+    const recDisplay = document.getElementById('recDisplay');
+    const ctaLink = document.getElementById('ctaLink');
+
+    function updateProgress() {
+      const answered = answers.filter(a => a !== null).length;
+      const pct = (answered / 5) * 100;
+      progressFill.style.width = pct + '%';
+      progressPercent.textContent = Math.round(pct) + '%';
+      questionCounter.textContent = `Question ${currentQIndex+1} of 5`;
+    }
+
+    function renderQuestion(idx) {
+      const q = questions[idx];
+      let html = `<div class="quiz-question"><h2>${idx+1}. ${q.text}</h2><div class="options">`;
+      q.options.forEach((opt, optIdx) => {
+        const sel = answers[idx] === optIdx;
+        html += `<div class="option ${sel?'selected':''}" data-opt-index="${optIdx}"><div class="option-indicator"></div><span class="option-text">${opt.text}</span><input type="radio" ${sel?'checked':''}></div>`;
+      });
+      html += `</div></div>`;
+      questionsContainer.innerHTML = html;
+      document.querySelectorAll('.option').forEach(opt => opt.addEventListener('click', function(){
+        const parent = this.parentNode;
+        parent.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+        const optIdx = parseInt(this.dataset.optIndex);
+        answers[currentQIndex] = optIdx;
+        updateProgress();
+        updateNav();
+      }));
+      updateProgress(); updateNav();
+    }
+
+    function updateNav() {
+      prevBtn.disabled = currentQIndex === 0;
+      const isLast = currentQIndex === 4;
+      nextBtn.classList.toggle('hidden', isLast);
+      submitBtn.classList.toggle('hidden', !isLast);
+      nextBtn.disabled = answers[currentQIndex] === null;
+      submitBtn.disabled = answers[currentQIndex] === null;
+    }
+
+    function calcScore() {
+      return answers.reduce((sum, optIdx, i) => sum + (optIdx !== null ? questions[i].options[optIdx].weight : 0), 0);
+    }
+
+    function showResults() {
+      const score = calcScore();
+      const tier = resultsTiers.find(t => score >= t.min && score <= t.max);
+      scoreDisplay.textContent = score;
+      tierDisplay.innerHTML = `${tier.tier}<br><span style="font-size:1.2rem; font-weight:400; color:var(--color-gray-500);">${tier.headline}</span>`;
+      recDisplay.textContent = tier.rec;
+      ctaLink.textContent = tier.cta + ' →';
+      ctaLink.href = tier.ctaLink;
+      quizSection.classList.add('hidden');
+      resultSection.classList.remove('hidden');
+    }
+
+    function restart() {
+      currentQIndex = 0; answers.fill(null);
+      resultSection.classList.add('hidden'); quizSection.classList.remove('hidden');
+      renderQuestion(0);
+    }
+
+    prevBtn.addEventListener('click', ()=>{ if(currentQIndex>0){ currentQIndex--; renderQuestion(currentQIndex); }});
+    nextBtn.addEventListener('click', ()=>{ if(currentQIndex<4 && answers[currentQIndex]!==null){ currentQIndex++; renderQuestion(currentQIndex); }});
+    submitBtn.addEventListener('click', (e)=>{ e.preventDefault(); if(answers.every(a=>a!==null)) showResults(); else alert('Answer all questions.'); });
+    document.getElementById('restartBtn').addEventListener('click', restart);
+    ctaLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('🔔 This would open your booking link.'); });
+
+    renderQuestion(0);
+  })();
+</script>
+</body>
+</html>
