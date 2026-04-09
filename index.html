@@ -3,39 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>+120% Shift in Ecommerce Outsourcing | HibLink Report</title>
+  <title>HibLink Tech on LinkedIn</title>
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ----- Light Theme Design System ----- */
+    /* LinkedIn Exact Theme */
     :root {
-      /* Base Light Surfaces */
-      --color-white: #ffffff;
-      --color-gray-50:  oklch(98% 0.005 264.665);
-      --color-gray-100: oklch(95% 0.008 264.665);
-      --color-gray-200: oklch(88% 0.012 264.665);
-      --color-gray-300: oklch(78% 0.015 264.665);
-      --color-gray-400: oklch(65% 0.020 264.665);
-      --color-gray-500: oklch(50% 0.025 264.665);
-      --color-gray-600: oklch(40% 0.028 264.665);
-      --color-gray-700: oklch(30% 0.030 264.665);
-      --color-gray-800: oklch(22% 0.032 264.665);
-      --color-gray-900: oklch(15% 0.034 264.665);
-      --color-black: #0a0a0f;
-
-      /* Accent Rainbow (Hugo style) */
-      --accent-indigo: oklch(45% 0.22 280);
-      --accent-orange: oklch(64.6% 0.222 41.116);
-      --accent-green:  oklch(62% 0.19 145);
-      --accent-blue:   oklch(55% 0.18 260);
-      --accent-red:    oklch(55% 0.24 28);
-
-      /* Spacing & Radius */
-      --radius-card: 32px;
-      --radius-button: 60px;
-      --radius-pill: 100px;
-      --container-width: 1280px;
+      --bg-light: #f3f2ef;
+      --card-white: #ffffff;
+      --text-primary: rgba(0,0,0,0.9);
+      --text-secondary: rgba(0,0,0,0.6);
+      --border-light: #e0dfdc;
+      --linkedin-blue: #0a66c2;
+      --linkedin-blue-hover: #004187;
+      --reaction-blue: #0a66c2;
+      --reaction-red: #e74c3c;
+      --reaction-yellow: #f1c40f;
+      --reaction-green: #2ecc71;
+      --reaction-purple: #9b59b6;
     }
 
     * {
@@ -45,294 +33,608 @@
     }
 
     body {
-      background-color: var(--color-gray-50);
-      color: var(--color-gray-800);
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      background-color: var(--bg-light);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+      color: var(--text-primary);
+      min-height: 100vh;
     }
 
-    h1, h2, h3, h4, .display-font {
-      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--color-gray-900);
+    .post-card {
+      max-width: 552px;
+      width: 100%;
+      background: var(--card-white);
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px var(--border-light), 0 2px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
 
-    .container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 24px;
+    /* Post Header */
+    .post-header {
+      display: flex;
+      padding: 12px 16px;
+      gap: 8px;
+      position: relative;
     }
 
-    /* Glassmorphism – now light with blur */
-    .glass {
-      background: oklch(100% 0 0 / 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--linkedin-blue), #1a8cff);
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 32px;
-      border-radius: var(--radius-button);
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      background: var(--accent-indigo);
       color: white;
-      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
+      font-weight: 700;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 2px solid var(--card-white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px oklch(45% 0.22 280 / 0.3);
-      background: oklch(50% 0.24 280);
+    .post-author {
+      flex: 1;
+      min-width: 0;
     }
 
-    .btn-orange {
-      background: var(--accent-orange);
-      box-shadow: 0 8px 20px oklch(64.6% 0.222 41.116 / 0.2);
-    }
-    .btn-orange:hover {
-      background: oklch(70% 0.23 41);
-    }
-
-    /* Bento Grid Cards */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    .author-top-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
     }
 
-    .bento-card {
-      background: var(--color-white);
-      border-radius: var(--radius-card);
-      padding: 28px;
-      border: 1px solid var(--color-gray-200);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    .author-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      text-decoration: none;
     }
 
-    .bento-card:hover {
-      border-color: var(--accent-indigo);
-      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.05);
-      transform: translateY(-4px);
+    .author-name:hover {
+      text-decoration: underline;
     }
 
-    /* Logo Ticker */
-    .logo-ticker-wrap {
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 20px 0;
-      mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+    .verified-badge {
+      color: var(--linkedin-blue);
+      font-size: 12px;
     }
 
-    .logo-ticker {
-      display: inline-flex;
-      animation: scroll 25s linear infinite;
+    .connection-badge {
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--text-secondary);
     }
 
-    .logo-ticker img {
+    .author-headline {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+      line-height: 1.3;
+    }
+
+    .post-time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .post-time a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .post-time a:hover {
+      color: var(--linkedin-blue);
+    }
+
+    .more-options {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
       height: 32px;
-      margin: 0 30px;
-      filter: grayscale(1) brightness(0.4);
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    .logo-ticker img:hover {
-      opacity: 1;
-      filter: grayscale(0) brightness(1);
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: background 0.2s;
     }
 
-    /* Trend badges */
-    .trend-up {
-      background: oklch(62% 0.19 145 / 0.1);
-      color: var(--accent-green);
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 0.9rem;
-      display: inline-block;
+    .more-options:hover {
+      background: rgba(0,0,0,0.05);
     }
 
-    .trend-breakout {
-      background: oklch(64.6% 0.222 41.116 / 0.1);
-      color: var(--accent-orange);
+    /* Caption Section */
+    .post-caption {
+      padding: 4px 16px 8px;
+    }
+
+    .caption-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .caption-text strong {
       font-weight: 700;
     }
 
-    /* Quote block */
-    .quote-block {
-      background: var(--color-gray-100);
-      border-left: 6px solid var(--accent-red);
-      padding: 32px 36px;
-      border-radius: 24px;
-      font-size: 1.4rem;
+    .caption-text em {
+      font-style: italic;
+    }
+
+    .see-more-btn {
+      color: var(--text-secondary);
       font-weight: 500;
-      margin: 40px 0;
-      color: var(--color-gray-800);
+      font-size: 14px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 4px;
+      transition: color 0.2s;
     }
 
-    /* Comparison grid */
-    .comparison-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    .see-more-btn:hover {
+      color: var(--linkedin-blue);
     }
 
-    /* Hero section */
-    .hero {
-      padding: 80px 0 60px;
+    .hashtags {
+      color: var(--linkedin-blue);
+      font-size: 14px;
+      display: block;
+      margin-top: 8px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1.1;
-      max-width: 900px;
-      margin-bottom: 24px;
+    .hashtags a {
+      color: var(--linkedin-blue);
+      text-decoration: none;
     }
 
-    .hero .highlight {
-      color: var(--accent-orange);
+    .hashtags a:hover {
+      text-decoration: underline;
     }
 
-    .section-title {
-      font-size: 2.2rem;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-      color: var(--color-gray-900);
+    /* Carousel Container */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      background: #fff;
     }
 
-    /* Responsive */
-    @media (max-width: 640px) {
-      .comparison-2col {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .container {
-        padding: 0 16px;
-      }
+    .carousel-slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      aspect-ratio: 1 / 1;
     }
 
-    .text-accent-indigo { color: var(--accent-indigo); }
-    .text-accent-orange { color: var(--accent-orange); }
-    .text-accent-green { color: var(--accent-green); }
-    .bg-white { background: var(--color-white); }
+    .carousel-slides::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Carousel Navigation Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 0;
+      background: var(--card-white);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-light);
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .dot:hover {
+      background: #b0aeb0;
+    }
+
+    .dot.active {
+      background: var(--linkedin-blue);
+      width: 20px;
+      border-radius: 8px;
+    }
+
+    /* Carousel nav arrows */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 4px;
+      pointer-events: none;
+    }
+
+    .nav-arrow {
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      pointer-events: auto;
+      cursor: pointer;
+      border: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-arrow:hover {
+      background: #fff;
+    }
+
+    /* Impressions row */
+    .impressions {
+      padding: 8px 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .impressions .reaction-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .impressions .separator {
+      margin: 0 2px;
+    }
+
+    .impressions a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .impressions a:hover {
+      color: var(--linkedin-blue);
+      text-decoration: underline;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 0;
+    }
+
+    /* Social actions */
+    .social-actions {
+      display: flex;
+      align-items: center;
+      padding: 4px 8px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex: 1;
+      background: none;
+      border: none;
+    }
+
+    .social-btn:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .social-btn i {
+      font-size: 16px;
+    }
+
+    .social-btn.active {
+      color: var(--linkedin-blue);
+    }
+
+    /* CTA Link - LinkedIn Link Preview Card */
+    .post-cta {
+      margin: 8px 16px 12px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .post-cta:hover {
+      background: #f8f9fa;
+    }
+
+    .cta-link-wrapper {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .cta-domain {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 12px 4px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .cta-domain i {
+      font-size: 10px;
+    }
+
+    .cta-content {
+      display: flex;
+      padding: 0 12px 12px;
+      gap: 12px;
+    }
+
+    .cta-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cta-text h4 {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .cta-text p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .cta-thumbnail {
+      width: 100px;
+      height: 70px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--linkedin-blue), #1a8cff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
-
-<!-- Glass Navigation -->
-<nav class="glass" style="position: sticky; top: 0; z-index: 50; padding: 16px 0;">
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: 800; font-size: 1.8rem; color: var(--color-gray-900); letter-spacing: -0.02em;">HibLink <span style="color: var(--accent-orange);">Tech</span></div>
-    <a href="opsreadiness.html" class="btn" style="padding: 10px 24px; font-size: 1rem;">Run Diagnostic →</a>
-  </div>
-</nav>
-
-<main class="container">
-  <!-- Hero -->
-  <section class="hero">
-    <h1>
-      <span class="highlight">+120%</span> More Founders Are Searching for<br>
-      “Virtual Assistant Outsourcing.”<br>
-      <span style="color: var(--color-gray-500); font-size: 0.5em; font-weight: 400;">Here's why.</span>
-    </h1>
-    <p style="font-size: 1.25rem; max-width: 700px; color: var(--color-gray-600); margin-bottom: 32px;">
-      The era of managing unreliable freelancers is over. Smart brands are shifting to managed, real‑time support teams—and the data proves it.
-    </p>
-    <a href="opsreadiness.html" class="btn btn-orange">📊 Run 2‑Minute Diagnostic →</a>
-  </section>
-
-  <!-- Logo Ticker -->
-  <div class="logo-ticker-wrap">
-    <div class="logo-ticker">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify" style="height:28px;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EKLAVIYO%3C/text%3E%3C/svg%3E" alt="Klaviyo">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EGORGIAS%3C/text%3E%3C/svg%3E" alt="Gorgias">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ERECHARGE%3C/text%3E%3C/svg%3E" alt="Recharge">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
-    </div>
-  </div>
-
-  <!-- The Signal -->
-  <section style="margin: 80px 0;">
-    <h2 class="section-title">📈 The Signal <span style="color: var(--color-gray-500); font-weight: 400;">(Google Trends Q1 2026)</span></h2>
-    <div class="bento-grid">
-      <div class="bento-card"><span class="trend-up trend-breakout" style="margin-bottom: 12px; display: inline-block;">+120% Breakout</span><h3 style="font-size: 2rem; margin-bottom: 8px;">virtual assistant outsourcing</h3><p style="color: var(--color-gray-600);">Founders want a managed system, not a freelancer to train.</p></div>
-      <div class="bento-card"><span class="trend-up">+40%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">ecommerce virtual assistant</h3><p style="color: var(--color-gray-600);">Platform expertise is now mandatory.</p></div>
-      <div class="bento-card"><span class="trend-up">+60%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">BELAY virtual assistant</h3><p style="color: var(--color-gray-600);">Premium managed services are in demand.</p></div>
-      <div class="bento-card"><span style="color: var(--accent-red); font-weight: 700;">-8%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">virtual assistant jobs</h3><p style="color: var(--color-gray-600);">Generic hiring is flat.</p></div>
-    </div>
-  </section>
-
-  <!-- Reddit Quote -->
-  <div class="quote-block">
-    “The real cost isn't the hourly rate. It's the 6 weeks you spend training someone who leaves.”
-    <div style="margin-top: 16px; font-size: 1rem; color: var(--color-gray-500);">— r/Entrepreneur</div>
-  </div>
-
-  <!-- Ethiopia Advantage -->
-  <section style="margin: 60px 0;">
-    <h2 class="section-title">🌍 The Ethiopia Advantage <span style="color: var(--color-gray-500);">(GMT+3)</span></h2>
-    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 40px; border: 1px solid var(--color-gray-200); box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
-      <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;">
-        <div style="font-size: 3rem; font-weight: 800; color: var(--color-gray-900);">9:00 AM NYC</div>
-        <div style="font-size: 2rem; color: var(--accent-green);">=</div>
-        <div style="font-size: 3rem; font-weight: 800; color: var(--accent-orange);">4:00 PM Addis</div>
+<div class="post-card">
+  
+  <!-- Header -->
+  <div class="post-header">
+    <div class="avatar">H</div>
+    <div class="post-author">
+      <div class="author-top-row">
+        <a href="#" class="author-name">HibLink Tech</a>
+        <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+        <span class="connection-badge">• 1st</span>
       </div>
-      <p style="margin-top: 20px; color: var(--color-gray-700);">State‑backed BPO investment: <strong>$25.6M facility</strong>. Real‑time support.</p>
-      <div style="margin-top: 30px;"><span style="background: var(--accent-blue); color: white; padding: 6px 16px; border-radius: 30px;">✅ Zero‑Lag</span><span style="background: var(--accent-green); color: white; padding: 6px 16px; border-radius: 30px; margin-left: 12px;">✅ 5G Failover</span></div>
+      <div class="author-headline">Ecommerce Operations Partner • Addis Ababa, Ethiopia</div>
+      <div class="post-time">
+        <span>2h • </span>
+        <a href="#"><i class="fas fa-globe-americas"></i></a>
+      </div>
     </div>
-  </section>
-
-  <!-- Support Node -->
-  <h2 class="section-title">🧩 The HibLink Support Node</h2>
-  <div class="comparison-2col">
-    <div class="bento-card" style="background: var(--color-gray-100);"><h3 style="color: var(--accent-red);">❌ Old Model</h3><ul style="list-style: none; color: var(--color-gray-700);"><li>✕ 1 person, single point of failure</li><li>✕ You provide all training</li><li>✕ 12+ hour time lag</li><li>✕ Ghosting risk</li></ul></div>
-    <div class="bento-card" style="border: 2px solid var(--accent-green);"><h3 style="color: var(--accent-green);">✅ HibLink Node</h3><ul style="list-style: none; color: var(--color-gray-800);"><li>✓ Primary VA + Backup + AI</li><li>✓ Pre‑trained on Shopify, Gorgias</li><li>✓ Real‑time GMT+3</li><li>✓ 72‑Hour Replacement</li></ul></div>
+    <div class="more-options">
+      <i class="fas fa-ellipsis"></i>
+    </div>
   </div>
 
-  <!-- 3-Question Audit -->
-  <section style="margin: 80px 0;">
-    <h2 class="section-title">📋 The 3‑Question Ops Audit</h2>
-    <div class="bento-grid">
-      <div class="bento-card"><div style="font-size: 2rem; color: var(--accent-indigo);">1.</div><h4>“What happens if my support person quits?”</h4><p style="color: var(--color-gray-600);">If the answer is panic, you need redundancy.</p></div>
-      <div class="bento-card"><div style="font-size: 2rem; color: var(--accent-indigo);">2.</div><h4>“Do they know a chargeback from a return?”</h4><p style="color: var(--color-gray-600);">If you explain it, you're losing margin.</p></div>
-      <div class="bento-card"><div style="font-size: 2rem; color: var(--accent-indigo);">3.</div><h4>“Are they online when my customers are?”</h4><p style="color: var(--color-gray-600);">If you wake up to replies, retention suffers.</p></div>
+  <!-- Caption -->
+  <div class="post-caption">
+    <div class="caption-text">
+      <span id="captionFull">I don't guess when I build a marketing strategy. I look at the data.<br><br>Here's what US founders searched for in the last 90 days (Source: Google Trends):<br><br>📈 <strong>+120%</strong> "Virtual Assistant Outsourcing"<br>📈 <strong>+60%</strong> "BELAY Virtual Assistant"<br>📈 <strong>+40%</strong> "Ecommerce Virtual Assistant"<br><br>The story this tells is crystal clear:<br><br><strong>Founders are done managing people. They want to manage results.</strong><br><br>They're looking for premium, managed teams that work <em>their</em> hours and understand their platform (Shopify, Gorgias, Amazon).<br><br>At HibLink, we saw this shift coming. That's why we built the <strong>Ecommerce Support Node</strong>—a redundant, real-time team based in Addis Ababa (GMT+3).<br><br><span class="hashtags">#Ecommerce #VirtualAssistant #Shopify #DataDriven #HibLinkTech</span></span>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <div style="background: var(--color-gray-100); border-radius: var(--radius-card); padding: 60px 40px; text-align: center; border: 1px solid var(--color-gray-200); margin: 40px 0 80px;">
-    <h2 style="font-size: 2.6rem; color: var(--color-gray-900);">⚡ Curious if your ops are ready for Q4?</h2>
-    <p style="color: var(--color-gray-600); margin-bottom: 32px;">Take our 2‑minute diagnostic — personalized readiness score.</p>
-    <a href="opsreadiness.html" class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;">Run the Free Diagnostic →</a>
   </div>
 
-  <footer style="border-top: 1px solid var(--color-gray-200); padding: 40px 0; color: var(--color-gray-500); display: flex; justify-content: space-between;">
-    <div>© 2026 HibLink Tech — The Ecommerce Operations Partner</div>
-    <div>Data: Google Trends, Reddit, Ethiopian Investment Holdings</div>
-  </footer>
-</main>
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-slides" id="carouselSlides">
+      <div class="slide"><img src="HibLink Folder/slide 1.png" alt="Slide 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 1%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 2.png" alt="Slide 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23e8f0fe\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 2%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 3.png" alt="Slide 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23fef6e0\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 3%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 4.png" alt="Slide 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23e6f7e6\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 4%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 5.png" alt="Slide 5" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23fde7e7\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 5%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 6.png" alt="Slide 6" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23f0e6ff\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 6%3C/text%3E%3C/svg%3E'"></div>
+      <div class="slide"><img src="HibLink Folder/slide 7.png" alt="Slide 7" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23ffe6cc\'/%3E%3Ctext x=\'50%\' y=\'50%\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3ESlide 7%3C/text%3E%3C/svg%3E'"></div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="carousel-nav">
+      <button class="nav-arrow" id="prevSlide" title="Previous slide" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+      <button class="nav-arrow" id="nextSlide" title="Next slide" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Carousel Dots -->
+  <div class="carousel-dots" id="carouselDots">
+    <button class="dot active" data-index="0" title="Go to slide 1" aria-label="Go to slide 1"></button>
+    <button class="dot" data-index="1" title="Go to slide 2" aria-label="Go to slide 2"></button>
+    <button class="dot" data-index="2" title="Go to slide 3" aria-label="Go to slide 3"></button>
+    <button class="dot" data-index="3" title="Go to slide 4" aria-label="Go to slide 4"></button>
+    <button class="dot" data-index="4" title="Go to slide 5" aria-label="Go to slide 5"></button>
+    <button class="dot" data-index="5" title="Go to slide 6" aria-label="Go to slide 6"></button>
+    <button class="dot" data-index="6" title="Go to slide 7" aria-label="Go to slide 7"></button>
+  </div>
+
+  <!-- Impressions -->
+  <div class="impressions">
+    <span class="reaction-icon">
+      <i class="fas fa-thumbs-up" style="color: var(--reaction-blue); font-size: 10px;"></i>
+      <i class="fas fa-heart" style="color: var(--reaction-red); font-size: 8px; margin-left: -4px;"></i>
+      <i class="fas fa-lightbulb" style="color: var(--reaction-yellow); font-size: 8px; margin-left: -4px;"></i>
+    </span>
+    <span>247</span>
+    <span class="separator">•</span>
+    <a href="#">12 comments</a>
+    <span class="separator">•</span>
+    <a href="#">4 reposts</a>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Social Action Buttons -->
+  <div class="social-actions">
+    <button class="social-btn" id="likeBtn" title="Like" aria-label="Like this post">
+      <i class="far fa-thumbs-up"></i> <span>Like</span>
+    </button>
+    <button class="social-btn" title="Comment" aria-label="Comment on this post">
+      <i class="far fa-comment"></i> <span>Comment</span>
+    </button>
+    <button class="social-btn" title="Repost" aria-label="Repost this post">
+      <i class="fas fa-retweet"></i> <span>Repost</span>
+    </button>
+    <button class="social-btn" title="Send" aria-label="Send this post">
+      <i class="far fa-paper-plane"></i> <span>Send</span>
+    </button>
+  </div>
+
+  <!-- CTA Link Preview -->
+  <div class="post-cta">
+    <a href="blog1.html" class="cta-link-wrapper">
+      <div class="cta-domain">
+        <i class="fas fa-external-link-alt"></i>
+        <span>hiblinktech.com</span>
+      </div>
+      <div class="cta-content">
+        <div class="cta-text">
+          <h4>Curious if your ops are ready for scale?</h4>
+          <p>Take our 2-minute diagnostic</p>
+        </div>
+        <div class="cta-thumbnail">
+          <i class="fas fa-chart-line"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Carousel functionality
+    const slidesContainer = document.getElementById('carouselSlides');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    
+    function updateActiveDot(index) {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function scrollToSlide(index) {
+      const slideWidth = slidesContainer.clientWidth;
+      slidesContainer.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth'
+      });
+      updateActiveDot(index);
+    }
+
+    // Observer to sync dots with scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const slide = entry.target;
+          const slides = Array.from(slidesContainer.children);
+          const index = slides.indexOf(slide);
+          if (index !== -1) updateActiveDot(index);
+        }
+      });
+    }, { threshold: 0.6, root: slidesContainer });
+
+    document.querySelectorAll('.slide').forEach(slide => observer.observe(slide));
+
+    // Dot click navigation
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => scrollToSlide(idx));
+    });
+
+    // Arrow navigation
+    prevBtn.addEventListener('click', () => {
+      const scrollPos = slidesContainer.scrollLeft;
+      const slideWidth = slidesContainer.clientWidth;
+      let index = Math.round(scrollPos / slideWidth);
+      index = Math.max(0, index - 1);
+      scrollToSlide(index);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const scrollPos = slidesContainer.scrollLeft;
+      const slideWidth = slidesContainer.clientWidth;
+      const maxIndex = slidesContainer.children.length - 1;
+      let index = Math.round(scrollPos / slideWidth);
+      index = Math.min(maxIndex, index + 1);
+      scrollToSlide(index);
+    });
+
+    // Like button toggle
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const icon = this.querySelector('i');
+      if (this.classList.contains('active')) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        this.style.color = 'var(--linkedin-blue)';
+      } else {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        this.style.color = '';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
