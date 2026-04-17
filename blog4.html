@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hidden Cost of Admin Overload: Why Ecommerce Founders Lose 15+ Hours a Week | HibLink Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-white: #ffffff;
+      --color-gray-50: oklch(98% 0.005 264.665);
+      --color-gray-100: oklch(95% 0.008 264.665);
+      --color-gray-200: oklch(88% 0.012 264.665);
+      --color-gray-300: oklch(78% 0.015 264.665);
+      --color-gray-400: oklch(65% 0.020 264.665);
+      --color-gray-500: oklch(50% 0.025 264.665);
+      --color-gray-600: oklch(40% 0.028 264.665);
+      --color-gray-700: oklch(30% 0.030 264.665);
+      --color-gray-800: oklch(22% 0.032 264.665);
+      --color-gray-900: oklch(15% 0.034 264.665);
+      --color-black: #0a0a0f;
+
+      --accent-indigo: oklch(45% 0.22 280);
+      --accent-orange: oklch(64.6% 0.222 41.116);
+      --accent-green: oklch(62% 0.19 145);
+      --accent-blue: oklch(55% 0.18 260);
+      --accent-red: oklch(55% 0.24 28);
+
+      --radius-card: 32px;
+      --radius-button: 60px;
+      --radius-pill: 100px;
+      --container-width: 1280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-gray-50);
+      color: var(--color-gray-800);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-gray-900);
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .glass {
+      background: oklch(100% 0 0 / 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      background: var(--accent-indigo);
+      color: white;
+      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px oklch(45% 0.22 280 / 0.3);
+      background: oklch(50% 0.24 280);
+    }
+
+    .btn-orange {
+      background: var(--accent-orange);
+      box-shadow: 0 8px 20px oklch(64.6% 0.222 41.116 / 0.2);
+    }
+    .btn-orange:hover {
+      background: oklch(70% 0.23 41);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .bento-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      border: 1px solid var(--color-gray-200);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .bento-card:hover {
+      border-color: var(--accent-indigo);
+      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.05);
+      transform: translateY(-4px);
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+
+    .hero .highlight {
+      color: var(--accent-orange);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+      color: var(--color-gray-900);
+    }
+
+    .quote-block {
+      background: var(--color-gray-100);
+      border-left: 6px solid var(--accent-red);
+      padding: 32px 36px;
+      border-radius: 24px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 40px 0;
+      color: var(--color-gray-800);
+    }
+
+    .stat-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      border: 2px solid var(--accent-orange);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--color-gray-600);
+      font-weight: 500;
+    }
+
+    .comparison-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .check-item span:first-child {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .cross-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .cross-item span:first-child {
+      color: var(--accent-red);
+      font-weight: 700;
+    }
+
+    .booking-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .booking-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .booking-modal {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      width: 95%;
+      max-width: 900px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .booking-overlay.active .booking-modal {
+      transform: translateY(0);
+    }
+
+    .booking-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--color-gray-500);
+      transition: color 0.2s;
+    }
+
+    .booking-close:hover {
+      color: var(--color-gray-800);
+    }
+
+    .booking-form-group {
+      margin-bottom: 20px;
+    }
+
+    .booking-form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--color-gray-700);
+    }
+
+    .booking-form-group input,
+    .booking-form-group textarea,
+    .booking-form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border-color 0.2s;
+      background: var(--color-white);
+    }
+
+    .booking-form-group input:focus,
+    .booking-form-group textarea:focus,
+    .booking-form-group select:focus {
+      outline: none;
+      border-color: var(--accent-indigo);
+      box-shadow: 0 0 0 3px oklch(45% 0.22 280 / 0.1);
+    }
+
+    .booking-form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .booking-form-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .booking-form-content .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .booking-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent-orange);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    .booking-submit:hover {
+      background: oklch(70% 0.23 41);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      .comparison-2col {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .booking-modal {
+        padding: 24px;
+      }
+      .booking-form-content {
+        grid-template-columns: 1fr;
+      }
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+
+    .text-accent-indigo { color: var(--accent-indigo); }
+    .text-accent-orange { color: var(--accent-orange); }
+    .text-accent-green { color: var(--accent-green); }
+    .text-accent-red { color: var(--accent-red); }
+    .bg-white { background: var(--color-white); }
+  </style>
+</head>
+<body>
+
+<!-- Glass Navigation -->
+<nav class="glass" style="position: sticky; top: 0; z-index: 50; padding: 16px 0;">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-weight: 800; font-size: 1.8rem; color: var(--color-gray-900); letter-spacing: -0.02em;"><a href="index.html" style="text-decoration: none; color: inherit;">HibLink <span style="color: var(--accent-orange);">Tech</span></a></div>
+    <button class="btn" style="padding: 10px 24px; font-size: 1rem;" onclick="openBookingModal()">Book Consultation →</button>
+  </div>
+</nav>
+
+<main class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <h1>
+      The Hidden Cost of Admin Overload: Why Ecommerce Founders Lose <span class="highlight">15+ Hours a Week</span> (And How to Buy It Back)
+    </h1>
+    <p style="font-size: 1.25rem; max-width: 700px; color: var(--color-gray-600); margin-bottom: 32px;">
+      You blocked off 9:00 AM to finally work on your Q2 marketing plan. By 11:30 AM, you've answered 14 "Where's my order?" emails, manually updated three tracking numbers, and exchanged six Slack messages about a mis-shipped product. The marketing plan? Still a blank page.
+    </p>
+    <button class="btn btn-orange" onclick="openBookingModal()">Book a Free Consultation →</button>
+  </section>
+
+  <!-- The Problem -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">The Data</h2>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 32px;">
+      Numbers don't lie. The average ecommerce founder loses 15+ hours per week to low-value admin noise—customer emails, order tracking, data entry, and endless Slack pings. That's 60+ hours a month, or over 720 hours a year.
+    </p>
+
+    <div class="bento-grid">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Hours Lost Per Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">60+</div>
+        <div class="stat-label">Hours Lost Per Month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">720+</div>
+        <div class="stat-label">Hours Lost Per Year</div>
+      </div>
+    </div>
+
+    <div class="quote-block" style="margin-top: 40px;">
+      "Executives waste 20% of their week on tasks that could be delegated."
+      <div style="margin-top: 12px; font-size: 1rem; color: var(--color-gray-600);">— Harvard Business Review</div>
+    </div>
+  </section>
+
+  <!-- The Real Cost -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">The Real Cost</h2>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 24px;">
+      Your time isn't free. Founders value at $75–$150 per hour based on revenue multiples. Those 15 lost hours? That's <strong>$1,125–$2,250 weekly</strong>—or <strong>$4,500–$9,000 monthly</strong> in vanished opportunity.
+    </p>
+
+    <div class="bento-grid">
+      <div class="bento-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--accent-red);">💸 Financial Cost</h3>
+        <p style="color: var(--color-gray-600);">$1,125–$2,250 weekly in lost opportunity cost. That's $4,500–$9,000 per month gone—not to competitors, but to admin noise.</p>
+      </div>
+      <div class="bento-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--accent-red);">🧠 Psychological Cost</h3>
+        <p style="color: var(--color-gray-600);">Burnout from decision fatigue, trapped in working IN the business instead of ON it. You started this brand to build something big, not to play customer service rep.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Freelancers Aren't the Fix -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">Why Freelancers Aren't the Fix</h2>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 32px;">
+      Freelancers sound cheap and easy, but they drain more time than they save. Constant training leakage, mid-project ghosting, and time zone mismatches mean you're always onboarding the next one.
+    </p>
+
+    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 40px; border: 1px solid var(--color-gray-200);">
+      <div class="bento-grid">
+        <div>
+          <div class="cross-item">
+            <span>✕</span>
+            <div>
+              <strong>Training Leakage</strong>
+              <p style="color: var(--color-gray-600);">You spend 10 hours training, then they ghost. Start over.</p>
+            </div>
+          </div>
+          <div class="cross-item">
+            <span>✕</span>
+            <div>
+              <strong>Mid-Project Ghosting</strong>
+              <p style="color: var(--color-gray-600);">Disappear right when you need them most.</p>
+            </div>
+          </div>
+          <div class="cross-item">
+            <span>✕</span>
+            <div>
+              <strong>Time Zone Mismatches</strong>
+              <p style="color: var(--color-gray-600);">They sleep when you're awake. No real-time support.</p>
+            </div>
+          </div>
+          <div class="cross-item">
+            <span>✕</span>
+            <div>
+              <strong>Single Point of Failure</strong>
+              <p style="color: var(--color-gray-600);">One person out = your entire operation stops.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="check-item">
+            <span>✓</span>
+            <div>
+              <strong>You Need Redundancy + Management</strong>
+              <p style="color: var(--color-gray-600);">A system designed to handle ecommerce admin overload without you micromanaging.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <span>✓</span>
+            <div>
+              <strong>Pre-Trained Talent</strong>
+              <p style="color: var(--color-gray-600);">Ready to hit the ground running from day one.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <span>✓</span>
+            <div>
+              <strong>Team-Based Coverage</strong>
+              <p style="color: var(--color-gray-600);">Primary + backup + AI co-pilot working in sync.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <span>✓</span>
+            <div>
+              <strong>Guaranteed Availability</strong>
+              <p style="color: var(--color-gray-600);">Real-time coverage when you need it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The HibLink Solution -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">🛡️ The HibLink Solution</h2>
+    <p style="font-size: 1.3rem; color: var(--color-gray-800); margin-bottom: 24px; font-weight: 600;">
+      Enter the HibLink Ecommerce Support Node: your primary VA, instant backup, and AI co-pilot working in perfect sync.
+    </p>
+
+    <div style="background: var(--color-white); border-radius: var(--radius-card); padding: 40px; border: 2px solid var(--accent-green);">
+      <div class="bento-grid">
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">🌍 GMT+3 Aligned</h3>
+          <p style="color: var(--color-gray-700);">Real-time US overlap—no lag, no excuses. When your customers email at 10am ET, they're at their desk, awake, and ready.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">🎓 Pre-Trained</h3>
+          <p style="color: var(--color-gray-700);">Pre-trained on Shopify, Gorgias, and Klaviyo. They hit the ground running on Shopify support outsourcing.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">🔄 Triple Redundancy</h3>
+          <p style="color: var(--color-gray-700);">Primary VA + instant backup + AI co-pilot. If one goes down, the others pick up instantly.</p>
+        </div>
+        <div>
+          <h3 style="color: var(--accent-green); margin-bottom: 16px;">⚡ No Training Required</h3>
+          <p style="color: var(--color-gray-700);">No training required. No ghosting. Just seamless handling of emails, tracking, and ops noise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section style="margin: 60px 0;">
+    <div class="quote-block" style="border-color: var(--accent-green);">
+      Founders using our node report buying back 15+ hours weekly, redirecting it straight to growth.
+      <p style="margin-top: 16px; font-size: 1.1rem; color: var(--color-gray-600);">It's like upgrading from a solo bike to a full pit crew.</p>
+    </div>
+  </section>
+
+  <!-- Conclusion -->
+  <section style="margin: 60px 0;">
+    <h2 class="section-title">Conclusion & CTA</h2>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 24px;">
+      Ecommerce admin overload isn't a personal failing—it's a system design flaw. You've built a revenue machine; now build the ops engine to protect your time.
+    </p>
+    <p style="font-size: 1.2rem; color: var(--color-gray-700); margin-bottom: 40px;">
+      Ready to see exactly how many hours you're losing?
+    </p>
+
+    <div style="background: var(--color-gray-100); border-radius: var(--radius-card); padding: 60px 40px; text-align: center; border: 1px solid var(--color-gray-200);">
+      <h2 style="font-size: 2rem; color: var(--color-gray-900); margin-bottom: 16px;">Run the Free 2-Minute Ops Readiness Diagnostic</h2>
+      <p style="color: var(--color-gray-600); margin-bottom: 32px;">Get a personalized breakdown of your hidden costs.</p>
+      <button class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;" onclick="openBookingModal()">Run the Diagnostic →</button>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid var(--color-gray-200); padding: 40px 0; color: var(--color-gray-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <div>© 2026 HibLink Tech — The Ecommerce Operations Partner</div>
+    <div style="display: flex; gap: 20px;">
+      <a href="blog1.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 1</a>
+      <a href="blog2.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 2</a>
+      <a href="blog3.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 3</a>
+    </div>
+    <div>Data: Harvard Business Review, Industry Reports</div>
+  </footer>
+</main>
+
+<!-- Booking Modal -->
+<div class="booking-overlay" id="bookingOverlay">
+  <div class="booking-modal">
+    <button class="booking-close" onclick="closeBookingModal()">&times;</button>
+    <h2 style="margin-bottom: 20px; color: var(--color-gray-900);">Book Your Free Consultation</h2>
+    <p style="color: var(--color-gray-600); margin-bottom: 30px;">Schedule a 30-minute call to discuss how an Ethiopian team can transform your ecommerce operations.</p>
+    
+    <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+      <div class="booking-form-content">
+        <div class="booking-form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="booking-form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        
+        <div class="booking-form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" required placeholder="Your company name">
+        </div>
+        
+        <div class="booking-form-group">
+          <label for="website">Website URL</label>
+          <input type="url" id="website" name="website" required placeholder="https://yourstore.com">
+        </div>
+        
+        <div class="booking-form-group">
+          <label for="monthlyRevenue">Monthly Revenue</label>
+          <select id="monthlyRevenue" name="monthlyRevenue" required>
+            <option value="">Select your monthly revenue range</option>
+            <option value="$5k-$20k">$5,000 - $20,000</option>
+            <option value="$20k-$50k">$20,000 - $50,000</option>
+            <option value="$50k-$100k">$50,000 - $100,000</option>
+            <option value="$100k-$250k">$100,000 - $250,000</option>
+            <option value="$250k-$500k">$250,000 - $500,000</option>
+            <option value="$500k+">$500,000+</option>
+          </select>
+        </div>
+        
+        <div class="booking-form-group">
+          <label for="currentTeam">Current Team Size</label>
+          <select id="currentTeam" name="currentTeam" required>
+            <option value="">Select your current team size</option>
+            <option value="1-5">1-5 employees</option>
+            <option value="6-15">6-15 employees</option>
+            <option value="16-30">16-30 employees</option>
+            <option value="31-50">31-50 employees</option>
+            <option value="50+">50+ employees</option>
+          </select>
+        </div>
+        
+        <div class="booking-form-group full-width">
+          <label for="interests">Areas of Interest</label>
+          <select id="interests" name="interests" multiple size="4" required>
+            <option value="Customer Support">Customer Support</option>
+            <option value="Order Management">Order Management</option>
+            <option value="Inventory Management">Inventory Management</option>
+            <option value="Marketing Operations">Marketing Operations</option>
+            <option value="Data Analysis">Data Analysis</option>
+            <option value="Social Media Management">Social Media Management</option>
+          </select>
+          <small style="color: var(--color-gray-500); display: block; margin-top: 4px;">Hold Ctrl/Cmd to select multiple options</small>
+        </div>
+        
+        <div class="booking-form-group full-width">
+          <label for="message">Additional Notes</label>
+          <textarea id="message" name="message" placeholder="Tell us about your specific needs and goals..."></textarea>
+        </div>
+        
+        <div class="booking-form-group full-width">
+          <button type="submit" class="booking-submit">Schedule My Free Consultation</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openBookingModal() {
+    document.getElementById('bookingOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBookingModal() {
+    document.getElementById('bookingOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleBookingSubmit(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    const interestsSelect = document.getElementById('interests');
+    const selectedInterests = Array.from(interestsSelect.selectedOptions).map(option => option.value);
+    data.interests = selectedInterests.join(', ');
+    
+    const summary = `
+Booking Request Submitted Successfully!
+
+📋 Client Information:
+• Name: ${data.name}
+• Email: ${data.email}
+• Company: ${data.company}
+• Website: ${data.website}
+
+📊 Business Details:
+• Monthly Revenue: ${data.monthlyRevenue}
+• Team Size: ${data.currentTeam}
+• Areas of Interest: ${data.interests}
+
+💬 Additional Notes:
+${data.message || 'No additional notes provided.'}
+
+✅ Next Steps:
+Our team will review your request and contact you within 24 hours to schedule your consultation.
+
+Thank you for choosing HibLink Tech!
+    `;
+    
+    alert(summary);
+    event.target.reset();
+    closeBookingModal();
+    console.log('Booking data:', data);
+  }
+
+  document.getElementById('bookingOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeBookingModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeBookingModal();
+    }
+  });
+</script>
+</body>
+</html>
