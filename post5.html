@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Africa's VA boom is here | HibLink Tech</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* LinkedIn Exact Theme */
+    :root {
+      --bg-light: #f3f2ef;
+      --card-white: #ffffff;
+      --text-primary: rgba(0,0,0,0.9);
+      --text-secondary: rgba(0,0,0,0.6);
+      --border-light: #e0dfdc;
+      --linkedin-blue: #0a66c2;
+      --linkedin-blue-hover: #004187;
+      --reaction-blue: #0a66c2;
+      --reaction-red: #e74c3c;
+      --reaction-yellow: #f1c40f;
+      --reaction-green: #2ecc71;
+      --reaction-purple: #9b59b6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    .post-card {
+      max-width: 552px;
+      width: 100%;
+      background: var(--card-white);
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px var(--border-light), 0 2px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    /* Post Header */
+    .post-header {
+      display: flex;
+      padding: 12px 16px;
+      gap: 8px;
+      position: relative;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--linkedin-blue), #1a8cff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 2px solid var(--card-white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .post-author {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .verified-icon {
+      color: var(--linkedin-blue);
+      font-size: 14px;
+    }
+
+    .author-headline {
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .post-time {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .post-menu {
+      color: var(--text-secondary);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* Post Content */
+    .post-content {
+      padding: 0 16px 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .post-headline {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    /* Post Image */
+    .post-media {
+      width: 100%;
+      display: block;
+    }
+
+    .post-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Post Actions */
+    .post-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 12px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .action-btn:hover {
+      background: rgba(0,0,0,0.08);
+    }
+
+    .action-btn i {
+      font-size: 18px;
+    }
+
+    /* Engagement Bar */
+    .engagement-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .engagement-left {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .reactions {
+      display: flex;
+      margin-right: 4px;
+    }
+
+    .reaction-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      margin-left: -4px;
+      border: 2px solid var(--card-white);
+    }
+
+    .reaction-icon:first-child {
+      margin-left: 0;
+    }
+
+    /* Comment Box */
+    .comment-box {
+      display: flex;
+      padding: 12px 16px;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .comment-input-wrap {
+      flex: 1;
+      display: flex;
+      gap: 8px;
+    }
+
+    .comment-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .comment-input:focus {
+      border-color: var(--linkedin-blue);
+    }
+
+    /* Hashtags */
+    .post-hashtags {
+      padding: 0 16px 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--linkedin-blue);
+    }
+
+    /* CTA Links */
+    .post-cta-links {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cta-link {
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-light);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .cta-link:hover {
+      background: #eaeaea;
+    }
+
+    .cta-link span {
+      color: var(--linkedin-blue);
+      font-weight: 600;
+    }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--linkedin-blue);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div style="position: fixed; top: 20px; left: 20px;">
+    <a href="index.html" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+
+  <div class="post-card">
+    <!-- Post Header -->
+    <div class="post-header">
+      <div class="avatar">H</div>
+      <div class="post-author">
+        <div class="author-name">
+          HibLink Tech
+          <i class="fas fa-check-circle verified-icon"></i>
+        </div>
+        <div class="author-headline">The Ecommerce Operations Partner | Ethiopian Talent for US Brands</div>
+        <div class="post-time">2h • <i class="fas fa-globe-americas"></i></div>
+      </div>
+      <div class="post-menu">•••</div>
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      <p class="post-headline">Africa's VA boom is here. But one country is quietly becoming the smart founder's secret weapon. 🇪🇹</p>
+      <p>By the end of this year, over 5,000 African VAs will be working with global clients. The training market is doubling to $12 billion.</p>
+      <p style="margin-top: 8px;">But while everyone fights over talent in the Philippines, a quieter shift is happening in Ethiopia.</p>
+      <p style="margin-top: 8px;"><strong>Here's why US ecommerce founders and agency owners are paying attention:</strong></p>
+      <ul style="margin: 12px 0; padding-left: 20px;">
+        <li>✅ University-educated, English-fluent talent pool</li>
+        <li>✅ Real-time support during US business hours (no waiting for Manila to wake up)</li>
+        <li>✅ $25.6M government investment in BPO infrastructure</li>
+        <li>✅ 95% client retention with managed Support Nodes—not unreliable freelancers</li>
+      </ul>
+      <p style="margin-top: 8px;">I sat down to write about what's happening in Addis Ababa and why it matters for founders tired of admin overload.</p>
+    </div>
+
+    <!-- Post Image -->
+    <div class="post-media">
+      <img src="HibLink Folder/Virtual-Assistant-2.jpg" alt="Ethiopia Virtual Assistant">
+    </div>
+
+    <!-- Hashtags -->
+    <div class="post-hashtags">
+      #Ethiopia #AfricaRising #VirtualAssistant #EcommerceOperations #RemoteTeams #FounderFocus #HibLinkTech
+    </div>
+
+    <!-- Engagement Stats -->
+    <div class="engagement-bar">
+      <div class="engagement-left">
+        <div class="reactions">
+          <div class="reaction-icon" style="background: var(--reaction-blue); color: white;">👍</div>
+          <div class="reaction-icon" style="background: var(--reaction-green); color: white;">❤️</div>
+          <div class="reaction-icon" style="background: var(--reaction-purple); color: white;">🚀</div>
+        </div>
+        <span>247</span>
+      </div>
+      <div>18 comments • 9 shares</div>
+    </div>
+
+    <!-- Actions -->
+    <div class="post-actions">
+      <button class="action-btn"><i class="far fa-thumbs-up"></i> Like</button>
+      <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
+      <button class="action-btn"><i class="fas fa-share"></i> Repost</button>
+      <button class="action-btn"><i class="far fa-paper-plane"></i> Send</button>
+    </div>
+
+    <!-- CTA Links -->
+    <div class="post-cta-links">
+      <a href="blog3.html" class="cta-link">2-minute read → <span>Read the full article</span></a>
+      <a href="opsreadiness.html" class="cta-link">📊 Run our free diagnostic → <span>See how much time you're losing to ops</span></a>
+    </div>
+
+    <!-- Comment Box -->
+    <div class="comment-box">
+      <div class="comment-avatar"><i class="fas fa-user"></i></div>
+      <div class="comment-input-wrap">
+        <input type="text" class="comment-input" placeholder="Add a comment...">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
