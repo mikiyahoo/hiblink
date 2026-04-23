@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VA Readiness Diagnostic | HibLink Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* VA Diagnostic page specific */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .quiz-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    .quiz-intro h1 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+    }
+    .quiz-intro .subtitle {
+      font-size: 1.2rem;
+      color: var(--color-gray-500);
+      font-weight: 400;
+    }
+    .quiz-intro .badge {
+      display: inline-block;
+      background: var(--accent-green);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav-logo">
+      <a href="#" onclick="history.back()">← Back to Blog</a>
+      <span style="color: var(--color-gray-400);">|</span>
+      <span style="font-weight: 700; color: var(--color-gray-900);">HibLink <span style="color: var(--accent-orange);">VA Diagnostic</span></span>
+    </div>
+
+    <div id="introSection" class="quiz-intro">
+      <span class="badge">⚡ VA Readiness Diagnostic</span>
+      <h1>Is Your Business Ready for a Virtual Assistant?</h1>
+      <p class="subtitle">2 minutes • 5 questions • Personalized readiness score</p>
+      <div style="margin-top: 32px;">
+        <button class="btn btn-orange" id="startBtn" style="font-size: 1.2rem; padding: 18px 48px;">Start Diagnostic →</button>
+      </div>
+    </div>
+
+    <div id="quizSection" class="hidden">
+      <div class="glass-card">
+        <div class="progress-container">
+          <div class="progress-label">
+            <span id="questionCounter">Question 1 of 5</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div id="navButtons" class="hidden" style="display: flex; gap: 16px; margin-top: 32px;">
+          <button class="btn btn-outline" id="prevBtn">← Previous</button>
+          <button class="btn" id="nextBtn">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultSection" class="hidden">
+      <div class="glass-card">
+        <div class="result-card">
+          <div class="score-display" id="scoreDisplay">0</div>
+          <div class="tier-name" id="tierDisplay">Analyzing...</div>
+          <div class="result-desc" id="recDisplay"></div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px;">
+            <a href="#" class="btn btn-orange" id="ctaLink">Book a 15-min VA Ops Audit →</a>
+            <button class="btn btn-outline" id="restartBtn">Retake Diagnostic</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const questions = [
+        {
+          text: "How do you currently handle admin and daily operations?",
+          options: [
+            { text: "I do everything myself.", weight: 5 },
+            { text: "I have a VA/freelancer, but I still check everything daily.", weight: 4 },
+            { text: "Small in-house support, but things slip through.", weight: 3 },
+            { text: "Agency/BPO, but time zone or quality is an issue.", weight: 2 },
+            { text: "Fully optimized managed VA team.", weight: 0 }
+          ]
+        },
+        {
+          text: "How many hours per week do YOU spend on admin tasks?",
+          options: [
+            { text: "20+ hours (completely overloaded).", weight: 5 },
+            { text: "10–20 hours.", weight: 4 },
+            { text: "5–10 hours.", weight: 3 },
+            { text: "2–5 hours.", weight: 2 },
+            { text: "Less than 2 hours.", weight: 0 }
+          ]
+        },
+        {
+          text: "If your main VA or admin support disappeared tomorrow?",
+          options: [
+            { text: "Everything would stop.", weight: 5 },
+            { text: "Major disruption, would take weeks to recover.", weight: 4 },
+            { text: "Some stress, but manageable.", weight: 3 },
+            { text: "I have SOPs and a backup VA.", weight: 1 },
+            { text: "Fully redundant system in place.", weight: 0 }
+          ]
+        },
+        {
+          text: "How organized are your daily operations (tasks, emails, scheduling)?",
+          options: [
+            { text: "Chaotic, things fall through the cracks.", weight: 5 },
+            { text: "Some structure, but inconsistent.", weight: 4 },
+            { text: "Mostly organized, occasional gaps.", weight: 3 },
+            { text: "Well-structured with systems in place.", weight: 1 },
+            { text: "Fully systemized and optimized.", weight: 0 }
+          ]
+        },
+        {
+          text: "What type of tasks do you need the most help with?",
+          options: [
+            { text: "Inbox & email management", weight: 2 },
+            { text: "Scheduling & calendar management", weight: 2 },
+            { text: "Data entry & research", weight: 2 },
+            { text: "Customer follow-ups & CRM updates", weight: 2 },
+            { text: "All of the above", weight: 3 }
+          ]
+        }
+      ];
+
+      const resultsTiers = [
+        { 
+          min: 0, 
+          max: 6, 
+          tier: "Ops Ninja", 
+          headline: "Your operations are solid.",
+          rec: "You'reReady for growth.", 
+          cta: "Scale Your Team", 
+          ctaLink: "#scale" 
+        },
+        { 
+          min: 7, 
+          max: 13, 
+          tier: "Growth Ready", 
+          headline: "Admin is starting to hurt.",
+          rec: "Book a 15-min VA Ops Audit to optimize.", 
+          cta: "Book Ops Audit →", 
+          ctaLink: "#audit" 
+        },
+        { 
+          min: 14, 
+          max: 20, 
+          tier: "System Gaps", 
+          headline: "Working IN the business, not ON it.",
+          rec: "You're losing 10-15 hrs/week to admin noise.", 
+          cta: "Explore VA Teams", 
+          ctaLink: "#teams" 
+        },
+        { 
+          min: 21, 
+          max: 26, 
+          tier: "Critical Overwhelm", 
+          headline: "Admin bottleneck is slowing you down.",
+          rec: "Deploy a trained VA in 72 hours.", 
+          cta: "Get Started Now", 
+          ctaLink: "#start" 
+        }
+      ];
+
+      let currentQIndex = 0;
+      const answers = new Array(5).fill(null);
+      const introSection = document.getElementById('introSection');
+      const quizSection = document.getElementById('quizSection');
+      const resultSection = document.getElementById('resultSection');
+      const questionsContainer = document.getElementById('questionsContainer');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const startBtn = document.getElementById('startBtn');
+      const restartBtn = document.getElementById('restartBtn');
+      const progressFill = document.getElementById('progressFill');
+      const questionCounter = document.getElementById('questionCounter');
+      const progressPercent = document.getElementById('progressPercent');
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      const tierDisplay = document.getElementById('tierDisplay');
+      const recDisplay = document.getElementById('recDisplay');
+      const ctaLink = document.getElementById('ctaLink');
+
+      startBtn.addEventListener('click', function() {
+        introSection.classList.add('hidden');
+        quizSection.classList.remove('hidden');
+        quizSection.querySelector('.glass-card').classList.add('hidden');
+        document.getElementById('navButtons').classList.remove('hidden');
+        renderQuestion(0);
+      });
+
+      function updateProgress() {
+        const answered = answers.filter(a => a !== null).length;
+        const pct = Math.round((answered / 5) * 100);
+        progressFill.style.width = pct + '%';
+        progressPercent.textContent = pct + '%';
+        questionCounter.textContent = `Question ${currentQIndex+1} of 5`;
+      }
+
+      function renderQuestion(idx) {
+        const q = questions[idx];
+        let html = `<div class="quiz-question"><h2>${idx+1}. ${q.text}</h2><div class="options">`;
+        q.options.forEach((opt, optIdx) => {
+          const sel = answers[idx] === optIdx;
+          html += `<div class="option ${sel?'selected':''}" data-opt-index="${optIdx}"><div class="option-indicator"></div><span class="option-text">${opt.text}</span><input type="radio" ${sel?'checked':''}></div>`;
+        });
+        html += `</div></div>`;
+        questionsContainer.innerHTML = html;
+
+        document.querySelectorAll('.option').forEach(opt => 
+          opt.addEventListener('click', function() {
+            const parent = this.parentNode;
+            parent.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            const optIdx = parseInt(this.dataset.optIndex);
+            answers[currentQIndex] = optIdx;
+            updateProgress();
+          })
+        );
+        updateProgress();
+      }
+
+      function updateNav() {
+        prevBtn.disabled = currentQIndex === 0;
+        const isLast = currentQIndex === 4;
+        nextBtn.classList.toggle('hidden', isLast);
+        nextBtn.disabled = answers[currentQIndex] === null;
+      }
+
+      function calcScore() {
+        return answers.reduce((sum, optIdx, i) => 
+          sum + (optIdx !== null ? questions[i].options[optIdx].weight : 0), 0);
+      }
+
+      function showResults() {
+        const score = calcScore();
+        const tier = resultsTiers.find(t => score >= t.min && score <= t.max);
+        scoreDisplay.textContent = score;
+        tierDisplay.innerHTML = `${tier.tier}<br><span style="font-size:1.2rem; font-weight:400; color:var(--color-gray-500);">${tier.headline}</span>`;
+        recDisplay.textContent = tier.rec;
+        ctaLink.textContent = tier.cta + ' →';
+        quizSection.classList.add('hidden');
+        resultSection.classList.remove('hidden');
+      }
+
+      restartBtn.addEventListener('click', function() {
+        currentQIndex = 0;
+        answers.fill(null);
+        resultSection.classList.add('hidden');
+        introSection.classList.remove('hidden');
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if(currentQIndex > 0) {
+          currentQIndex--;
+          renderQuestion(currentQIndex);
+          updateNav();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if(currentQIndex < 4 && answers[currentQIndex] !== null) {
+          currentQIndex++;
+          renderQuestion(currentQIndex);
+          updateNav();
+        }
+      });
+
+      startBtn.addEventListener('click', () => {
+        currentQIndex = 0;
+        renderQuestion(0);
+      });
+
+      updateNav();
+    })();
+  </script>
+</body>
+</html>

@@ -3,246 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>+120% Shift in Ecommerce Outsourcing | HibLink Report</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* ----- Light Theme Design System ----- */
-    :root {
-      /* Base Light Surfaces */
-      --color-white: #ffffff;
-      --color-gray-50:  oklch(98% 0.005 264.665);
-      --color-gray-100: oklch(95% 0.008 264.665);
-      --color-gray-200: oklch(88% 0.012 264.665);
-      --color-gray-300: oklch(78% 0.015 264.665);
-      --color-gray-400: oklch(65% 0.020 264.665);
-      --color-gray-500: oklch(50% 0.025 264.665);
-      --color-gray-600: oklch(40% 0.028 264.665);
-      --color-gray-700: oklch(30% 0.030 264.665);
-      --color-gray-800: oklch(22% 0.032 264.665);
-      --color-gray-900: oklch(15% 0.034 264.665);
-      --color-black: #0a0a0f;
-
-      /* Accent Rainbow (Hugo style) */
-      --accent-indigo: oklch(45% 0.22 280);
-      --accent-orange: oklch(64.6% 0.222 41.116);
-      --accent-green:  oklch(62% 0.19 145);
-      --accent-blue:   oklch(55% 0.18 260);
-      --accent-red:    oklch(55% 0.24 28);
-
-      /* Spacing & Radius */
-      --radius-card: 32px;
-      --radius-button: 60px;
-      --radius-pill: 100px;
-      --container-width: 1280px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: var(--color-gray-50);
-      color: var(--color-gray-800);
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4, .display-font {
-      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--color-gray-900);
-    }
-
-    .container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Glassmorphism – now light with blur */
-    .glass {
-      background: oklch(100% 0 0 / 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      border-radius: var(--radius-button);
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      background: var(--accent-indigo);
-      color: white;
-      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
-    }
-
-    .btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px oklch(45% 0.22 280 / 0.3);
-      background: oklch(50% 0.24 280);
-    }
-
-    .btn-orange {
-      background: var(--accent-orange);
-      box-shadow: 0 8px 20px oklch(64.6% 0.222 41.116 / 0.2);
-    }
-    .btn-orange:hover {
-      background: oklch(70% 0.23 41);
-    }
-
-    /* Bento Grid Cards */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .bento-card {
-      background: var(--color-white);
-      border-radius: var(--radius-card);
-      padding: 28px;
-      border: 1px solid var(--color-gray-200);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .bento-card:hover {
-      border-color: var(--accent-indigo);
-      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.05);
-      transform: translateY(-4px);
-    }
-
-    /* Logo Ticker */
-    .logo-ticker-wrap {
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 20px 0;
-      mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-    }
-
-    .logo-ticker {
-      display: inline-flex;
-      animation: scroll 25s linear infinite;
-    }
-
-    .logo-ticker img {
-      height: 32px;
-      margin: 0 30px;
-      filter: grayscale(1) brightness(0.4);
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-    .logo-ticker img:hover {
-      opacity: 1;
-      filter: grayscale(0) brightness(1);
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Trend badges */
-    .trend-up {
-      background: oklch(62% 0.19 145 / 0.1);
-      color: var(--accent-green);
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 0.9rem;
-      display: inline-block;
-    }
-
-    .trend-breakout {
-      background: oklch(64.6% 0.222 41.116 / 0.1);
-      color: var(--accent-orange);
-      font-weight: 700;
-    }
-
-    /* Quote block */
-    .quote-block {
-      background: var(--color-gray-100);
-      border-left: 6px solid var(--accent-red);
-      padding: 32px 36px;
-      border-radius: 24px;
-      font-size: 1.4rem;
-      font-weight: 500;
-      margin: 40px 0;
-      color: var(--color-gray-800);
-    }
-
-    /* Comparison grid */
-    .comparison-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    /* Hero section */
-    .hero {
-      padding: 80px 0 60px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1.1;
-      max-width: 900px;
-      margin-bottom: 24px;
-    }
-
-    .hero .highlight {
-      color: var(--accent-orange);
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-      color: var(--color-gray-900);
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .comparison-2col {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .container {
-        padding: 0 16px;
-      }
-    }
-
-    .text-accent-indigo { color: var(--accent-indigo); }
-    .text-accent-orange { color: var(--accent-orange); }
-    .text-accent-green { color: var(--accent-green); }
-    .bg-white { background: var(--color-white); }
-  </style>
+   <title>+120% Shift in Ecommerce Outsourcing | HibLink Report</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- Glass Navigation -->
-<nav class="glass" style="position: sticky; top: 0; z-index: 50; padding: 16px 0;">
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: 800; font-size: 1.8rem; color: var(--color-gray-900); letter-spacing: -0.02em;"><a href="index.html" style="text-decoration: none; color: inherit;">HibLink <span style="color: var(--accent-orange);">Tech</span></a></div>
+<nav class="glass">
+  <div class="container">
+    <div class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">HibLink <span class="text-accent-orange">Tech</span></a></div>
     <a href="opsreadiness.html" class="btn" style="padding: 10px 24px; font-size: 1rem;">Run Diagnostic →</a>
   </div>
 </nav>
@@ -253,18 +25,16 @@
     <h1>
       <span class="highlight">+120%</span> More Founders Are Searching for<br>
       "Virtual Assistant Outsourcing."<br>
-      <span style="color: var(--color-gray-500); font-size: 0.5em; font-weight: 400;">Here's why.</span>
+      <span class="subtitle">Here's why.</span>
     </h1>
-    <p style="font-size: 1.25rem; max-width: 700px; color: var(--color-gray-600); margin-bottom: 32px;">
-      The era of managing unreliable freelancers is over. Smart brands are shifting to managed, real‑time support teams—and the data proves it.
-    </p>
+    <p>When we look at the data, one trendline dominates everything else. The era of managing unreliable freelancers is over. Smart brands are shifting to managed, real‑time support teams—and the data proves it.</p>
     <a href="opsreadiness.html" class="btn btn-orange">📊 Run 2‑Minute Diagnostic →</a>
   </section>
 
   <!-- Logo Ticker -->
   <div class="logo-ticker-wrap">
     <div class="logo-ticker">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify" style="height:28px;">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify">
       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EKLAVIYO%3C/text%3E%3C/svg%3E" alt="Klaviyo">
       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EGORGIAS%3C/text%3E%3C/svg%3E" alt="Gorgias">
@@ -276,12 +46,12 @@
 
   <!-- The Signal -->
   <section style="margin: 80px 0;">
-    <h2 class="section-title">📈 The Signal <span style="color: var(--color-gray-500); font-weight: 400;">(Google Trends Q1 2026)</span></h2>
+    <h2 class="section-title">📈 The Signal <span class="text-muted">(Google Trends Q1 2026)</span></h2>
     <div class="bento-grid">
       <div class="bento-card"><span class="trend-up trend-breakout" style="margin-bottom: 12px; display: inline-block;">+120% Breakout</span><h3 style="font-size: 2rem; margin-bottom: 8px;">virtual assistant outsourcing</h3><p style="color: var(--color-gray-600);">Founders want a managed system, not a freelancer to train.</p></div>
       <div class="bento-card"><span class="trend-up">+40%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">ecommerce virtual assistant</h3><p style="color: var(--color-gray-600);">Platform expertise is now mandatory.</p></div>
       <div class="bento-card"><span class="trend-up">+60%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">BELAY virtual assistant</h3><p style="color: var(--color-gray-600);">Premium managed services are in demand.</p></div>
-      <div class="bento-card"><span style="color: var(--accent-red); font-weight: 700;">-8%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">virtual assistant jobs</h3><p style="color: var(--color-gray-600);">Generic hiring is flat.</p></div>
+       <div class="bento-card"><span class="text-accent-red" style="font-weight: 700;">-8%</span><h3 style="font-size: 2rem; margin: 12px 0 8px;">virtual assistant jobs</h3><p style="color: var(--color-gray-600);">Generic hiring is flat.</p></div>
     </div>
   </section>
 
@@ -308,8 +78,8 @@
   <!-- Support Node -->
   <h2 class="section-title">🧩 The HibLink Support Node</h2>
   <div class="comparison-2col">
-    <div class="bento-card" style="background: var(--color-gray-100);"><h3 style="color: var(--accent-red);">❌ Old Model</h3><ul style="list-style: none; color: var(--color-gray-700);"><li>✕ 1 person, single point of failure</li><li>✕ You provide all training</li><li>✕ 12+ hour time lag</li><li>✕ Ghosting risk</li></ul></div>
-    <div class="bento-card" style="border: 2px solid var(--accent-green);"><h3 style="color: var(--accent-green);">✅ HibLink Node</h3><ul style="list-style: none; color: var(--color-gray-800);"><li>✓ Primary VA + Backup + AI</li><li>✓ Pre‑trained on Shopify, Gorgias</li><li>✓ Real‑time GMT+3</li><li>✓ 72‑Hour Replacement</li></ul></div>
+     <div class="bento-card bg-gray-100"><h3 class="text-accent-red">❌ Old Model</h3><ul style="list-style: none; color: var(--color-gray-700);"><li>✕ 1 person, single point of failure</li><li>✕ You provide all training</li><li>✕ 12+ hour time lag</li><li>✕ Ghosting risk</li></ul></div>
+     <div class="bento-card" style="border: 2px solid var(--accent-green);"><h3 class="text-accent-green">✅ HibLink Node</h3><ul style="list-style: none; color: var(--color-gray-800);"><li>✓ Primary VA + Backup + AI</li><li>✓ Pre‑trained on Shopify, Gorgias</li><li>✓ Real‑time GMT+3</li><li>✓ 72‑Hour Replacement</li></ul></div>
   </div>
 
   <!-- 3-Question Audit -->
@@ -322,22 +92,22 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <div style="background: var(--color-gray-100); border-radius: var(--radius-card); padding: 60px 40px; text-align: center; border: 1px solid var(--color-gray-200); margin: 40px 0 80px;">
-    <h2 style="font-size: 2.6rem; color: var(--color-gray-900);">⚡ Curious if your ops are ready for Q4?</h2>
-    <p style="color: var(--color-gray-600); margin-bottom: 32px;">Take our 2‑minute diagnostic — personalized readiness score.</p>
-    <a href="opsreadiness.html" class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;">Run the Free Diagnostic →</a>
-  </div>
+   <!-- CTA -->
+   <div class="cta-section" style="margin: 40px 0 80px;">
+     <h2>⚡ Curious if your ops are ready for Q4?</h2>
+     <p>Take our 2‑minute diagnostic — personalized readiness score.</p>
+     <a href="opsreadiness.html" class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;">Run the Free Diagnostic →</a>
+   </div>
 
-  <footer style="border-top: 1px solid var(--color-gray-200); padding: 40px 0; color: var(--color-gray-500); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-    <div>© 2026 HibLink Tech — The Ecommerce Operations Partner</div>
-    <div style="display: flex; gap: 20px;">
-      <a href="blog1.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 1</a>
-      <a href="blog2.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 2</a>
-      <a href="blog3.html" style="color: var(--color-gray-500); text-decoration: none;">Blog 3</a>
-    </div>
-    <div>Data: Google Trends, Reddit, Ethiopian Investment Holdings</div>
-  </footer>
+   <footer class="site-footer">
+     <div>© 2026 HibLink Tech — The Ecommerce Operations Partner</div>
+     <div class="footer-links">
+       <a href="blog1.html" class="footer-link">Blog 1</a>
+       <a href="blog2.html" class="footer-link">Blog 2</a>
+       <a href="blog3.html" class="footer-link">Blog 3</a>
+     </div>
+     <div>Data: Google Trends, Reddit, Ethiopian Investment Holdings</div>
+   </footer>
 </main>
 </body>
 </html>

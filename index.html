@@ -3,238 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HibLink Tech — The Ecommerce Operations Partner</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* ----- Light Theme Design System ----- */
-    :root {
-      --color-white: #ffffff;
-      --color-gray-50:  oklch(98% 0.005 264.665);
-      --color-gray-100: oklch(95% 0.008 264.665);
-      --color-gray-200: oklch(88% 0.012 264.665);
-      --color-gray-300: oklch(78% 0.015 264.665);
-      --color-gray-400: oklch(65% 0.020 264.665);
-      --color-gray-500: oklch(50% 0.025 264.665);
-      --color-gray-600: oklch(40% 0.028 264.665);
-      --color-gray-700: oklch(30% 0.030 264.665);
-      --color-gray-800: oklch(22% 0.032 264.665);
-      --color-gray-900: oklch(15% 0.034 264.665);
-      --color-black: #0a0a0f;
-
-      --accent-indigo: oklch(45% 0.22 280);
-      --accent-orange: oklch(64.6% 0.222 41.116);
-      --accent-green:  oklch(62% 0.19 145);
-      --accent-blue:   oklch(55% 0.18 260);
-      --accent-red:    oklch(55% 0.24 28);
-
-      --radius-card: 32px;
-      --radius-button: 60px;
-      --radius-pill: 100px;
-      --container-width: 1280px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: var(--color-gray-50);
-      color: var(--color-gray-800);
-      font-family: 'Inter', -apple-system, sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4, .display-font {
-      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--color-gray-900);
-    }
-
-    .container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Glassmorphism */
-    .glass {
-      background: oklch(100% 0 0 / 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      border-radius: var(--radius-button);
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      background: var(--accent-indigo);
-      color: white;
-      box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.2);
-    }
-
-    .btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px oklch(45% 0.22 280 / 0.3);
-      background: oklch(50% 0.24 280);
-    }
-
-    .btn-orange {
-      background: var(--accent-orange);
-      box-shadow: 0 8px 20px oklch(64.6% 0.222 41.116 / 0.2);
-    }
-    .btn-orange:hover {
-      background: oklch(70% 0.23 41);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 100px 0 80px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      max-width: 800px;
-      margin: 0 auto 24px;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--color-gray-600);
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    /* Bento Grid */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .bento-card {
-      background: var(--color-white);
-      border-radius: var(--radius-card);
-      padding: 32px;
-      border: 1px solid var(--color-gray-200);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .bento-card:hover {
-      border-color: var(--accent-indigo);
-      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.08);
-      transform: translateY(-4px);
-    }
-
-    .bento-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: var(--color-gray-900);
-    }
-
-    .bento-card p {
-      color: var(--color-gray-600);
-      line-height: 1.6;
-    }
-
-    .bento-card .card-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .tag-blog { background: oklch(64.6% 0.222 41.116 / 0.1); color: var(--accent-orange); }
-    .tag-post { background: oklch(45% 0.22 280 / 0.1); color: var(--accent-indigo); }
-    .tag-tool { background: oklch(62% 0.19 145 / 0.1); color: var(--accent-green); }
-
-    /* Section */
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--color-gray-200);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--color-gray-500);
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .container {
-        padding: 0 16px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+   <title>HibLink Tech — The Ecommerce Operations Partner</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- Glass Navigation -->
-<nav class="glass" style="position: sticky; top: 0; z-index: 50; padding: 16px 0;">
-  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-    <div style="font-weight: 800; font-size: 1.8rem; color: var(--color-gray-900); letter-spacing: -0.02em;">HibLink <span style="color: var(--accent-orange);">Tech</span></div>
-    <a href="opsreadiness.html" class="btn" style="padding: 10px 24px; font-size: 1rem;">Run Diagnostic →</a>
-  </div>
-</nav>
+  <nav class="glass">
+    <div class="container">
+      <div class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">HibLink <span class="text-accent-orange">Tech</span></a></div>
+      <div style="display: flex; gap: 12px;">
+        <a href="va-readiness.html" class="btn" style="padding: 10px 24px; font-size: 1rem;">VA Diagnostic →</a>
+        <a href="opsreadiness.html" class="btn btn-outline" style="padding: 10px 24px; font-size: 1rem;">Ops Diagnostic →</a>
+      </div>
+    </div>
+  </nav>
 
 <main>
   <!-- Hero -->
   <section class="hero container">
-    <h1>Your Ecommerce Operations, <span style="color: var(--accent-orange);">Solved</span></h1>
+     <h1>Your Ecommerce Operations, <span class="text-accent-orange">Solved</span></h1>
     <p>We connect US ecommerce brands with certified Ethiopian talent — so you can scale without burnout.</p>
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <div class="cta-buttons">
       <a href="opsreadiness.html" class="btn btn-orange">Run Free Diagnostic →</a>
-      <a href="#pages" class="btn" style="background: var(--color-white); color: var(--color-gray-800); border: 1px solid var(--color-gray-200);">Explore Pages</a>
+      <a href="#pages" class="btn btn-outline">Explore Pages</a>
     </div>
   </section>
 
-  <!-- Logo Ticker -->
-  <div class="logo-ticker-wrap" style="overflow: hidden; white-space: nowrap; padding: 20px 0; mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);">
-    <div style="display: inline-flex; animation: scroll 25s linear infinite;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EKLAVIYO%3C/text%3E%3C/svg%3E" alt="Klaviyo" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EGORGIAS%3C/text%3E%3C/svg%3E" alt="Gorgias" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ERECHARGE%3C/text%3E%3C/svg%3E" alt="Recharge" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon" style="height:28px; margin: 0 30px; filter: grayscale(1) brightness(0.4); opacity: 0.7;">
-    </div>
-  </div>
+   <!-- Logo Ticker -->
+   <div class="logo-ticker-wrap">
+     <div class="logo-ticker">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EKLAVIYO%3C/text%3E%3C/svg%3E" alt="Klaviyo">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EGORGIAS%3C/text%3E%3C/svg%3E" alt="Gorgias">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ERECHARGE%3C/text%3E%3C/svg%3E" alt="Recharge">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3ESHOPIFY%3C/text%3E%3C/svg%3E" alt="Shopify">
+       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Ctext x='0' y='20' fill='%23111' font-family='Arial' font-size='14' font-weight='bold'%3EAMAZON%3C/text%3E%3C/svg%3E" alt="Amazon">
+     </div>
+   </div>
   <style>@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
 
   <!-- Pages Section -->
@@ -318,21 +128,31 @@
         <p>Why smart US founders are turning to Ethiopia for virtual assistant talent. The time zone advantage is real.</p>
       </a>
 
-      <!-- Ops Readiness -->
-      <a href="opsreadiness.html" class="bento-card">
-        <span class="card-tag tag-tool">🔧 Free Tool</span>
-        <h3>Operations Readiness Diagnostic</h3>
-        <p>Take our 2-minute diagnostic to get a personalized readiness score and discover what's holding your operations back.</p>
-      </a>
-    </div>
+       <!-- Ops Readiness -->
+       <a href="opsreadiness.html" class="bento-card">
+         <span class="card-tag tag-tool">🔧 Free Tool</span>
+         <h3>Operations Readiness Diagnostic</h3>
+         <p>Take our 2-minute diagnostic to get a personalized readiness score and discover what's holding your operations back.</p>
+       </a>
+
+       <!-- VA Readiness -->
+       <a href="va-readiness.html" class="bento-card">
+         <span class="card-tag tag-tool">⚡ Free Tool</span>
+         <h3>VA Readiness Diagnostic</h3>
+         <p>Is your business ready for a virtual assistant? Get your personalized score in 2 minutes and discover your delegation potential.</p>
+       </a>
+     </div>
   </section>
 
-  <!-- CTA Section -->
-  <div style="background: var(--color-gray-100); border-radius: var(--radius-card); padding: 60px 40px; text-align: center; border: 1px solid var(--color-gray-200); margin: 40px 24px 80px;">
-    <h2 style="font-size: 2.6rem; color: var(--color-gray-900); margin-bottom: 16px;">Ready to Scale Your Operations?</h2>
-    <p style="color: var(--color-gray-600); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">Join the smartest ecommerce founders who are building teams in Ethiopia with HibLink Tech.</p>
-    <a href="opsreadiness.html" class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;">Get Started Free →</a>
-  </div>
+    <!-- CTA Section -->
+    <div class="cta-section" style="margin: 40px 24px 80px;">
+      <h3>Ready to Scale Your Operations?</h3>
+      <p>Join the smartest ecommerce founders who are building teams in Ethiopia with HibLink Tech.</p>
+      <div class="cta-buttons">
+        <a href="opsreadiness.html" class="btn btn-orange" style="font-size: 1.3rem; padding: 18px 48px;">Get Started Free →</a>
+        <a href="va-readiness.html" class="btn btn-outline" style="font-size: 1.3rem; padding: 18px 48px;">VA Readiness →</a>
+      </div>
+    </div>
 </main>
 
 <footer>
