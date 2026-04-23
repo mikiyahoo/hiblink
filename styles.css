@@ -26,6 +26,20 @@
   --radius-button: 60px;
   --radius-pill: 100px;
   --container-width: 1280px;
+
+  /* LinkedIn Theme Variables */
+  --bg-light: #f3f2ef;
+  --card-white: #ffffff;
+  --text-primary: rgba(0,0,0,0.9);
+  --text-secondary: rgba(0,0,0,0.6);
+  --border-light: #e0dfdc;
+  --linkedin-blue: #0a66c2;
+  --linkedin-blue-hover: #004187;
+  --reaction-blue: #0a66c2;
+  --reaction-red: #e74c3c;
+  --reaction-yellow: #f1c40f;
+  --reaction-green: #2ecc71;
+  --reaction-purple: #9b59b6;
 }
 
 /* Reset & Base */
@@ -677,11 +691,6 @@ h1, h2, h3, h4, .display-font {
   margin-bottom: 16px;
 }
 
-.cta-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 12px;
-}
-
 .cta-buttons {
   display: flex;
   gap: 16px;
@@ -908,15 +917,6 @@ footer {
   margin-bottom: 16px;
 }
 
-.tag-blog { background: oklch(64.6% 0.222 41.116 / 0.1); color: var(--accent-orange); }
-.tag-post { background: oklch(45% 0.22 280 / 0.1); color: var(--accent-indigo); }
-.tag-tool { background: oklch(62% 0.19 145 / 0.1); color: var(--accent-green); }
-
-/* Section */
-.section {
-  padding: 80px 0;
-}
-
 /* Diagnostic/Quiz Styles */
 .glass-card {
   background: var(--color-white);
@@ -981,21 +981,6 @@ footer {
   box-shadow: 0 0 0 1px var(--border-light, #e0dfdc), 0 2px 4px rgba(0,0,0,0.05);
   overflow: hidden;
   margin: 24px auto;
-}
-
-:root {
-  --bg-light: #f3f2ef;
-  --card-white: #ffffff;
-  --text-primary: rgba(0,0,0,0.9);
-  --text-secondary: rgba(0,0,0,0.6);
-  --border-light: #e0dfdc;
-  --linkedin-blue: #0a66c2;
-  --linkedin-blue-hover: #004187;
-  --reaction-blue: #0a66c2;
-  --reaction-red: #e74c3c;
-  --reaction-yellow: #f1c40f;
-  --reaction-green: #2ecc71;
-  --reaction-purple: #9b59b6;
 }
 
 body.linkedin-page {
@@ -1401,30 +1386,6 @@ hr.divider {
   color: white;
   font-size: 24px;
   flex-shrink: 0;
-}
-
-/* Card tag styles for blog cards */
-.tag-blog { background: oklch(64.6% 0.222 41.116 / 0.1); color: var(--accent-orange); }
-.tag-post { background: oklch(45% 0.22 280 / 0.1); color: var(--accent-indigo); }
-.tag-tool { background: oklch(62% 0.19 145 / 0.1); color: var(--accent-green); }
-
-/* Blog1 specific styles */
-.section {
-  padding: 80px 0;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-/* Blog3 & Blog1 extra styles */
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* Blog3 and Blog1 responsive */

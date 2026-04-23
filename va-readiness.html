@@ -7,65 +7,411 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <style>
-    /* VA Diagnostic page specific */
+    :root {
+      --color-white: #ffffff;
+      --color-gray-50: #f8f9fb;
+      --color-gray-100: #f0f1f5;
+      --color-gray-200: #e2e4eb;
+      --color-gray-300: #c5c9d3;
+      --color-gray-400: #9aa0b0;
+      --color-gray-500: #6b7280;
+      --color-gray-600: #4b5563;
+      --color-gray-700: #374151;
+      --color-gray-800: #1f2937;
+      --color-gray-900: #111827;
+      --accent-indigo: #4f46e5;
+      --accent-orange: #f59e0b;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --accent-red: #ef4444;
+      --radius-card: 24px;
+      --radius-button: 60px;
+      --radius-pill: 100px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      background-color: var(--color-gray-50);
+      color: var(--color-gray-800);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 24px;
     }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-gray-900);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .nav-logo {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .nav-logo a {
+      color: var(--color-gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-logo a:hover {
+      color: var(--accent-indigo);
+    }
+    .nav-logo .separator {
+      color: var(--color-gray-300);
+    }
+    .nav-logo .brand {
+      font-weight: 700;
+      color: var(--color-gray-900);
+    }
+    .nav-logo .brand-accent {
+      color: var(--accent-orange);
+    }
+
+    /* Intro Section */
     .quiz-intro {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-    .quiz-intro h1 {
-      font-size: 2.6rem;
-      margin-bottom: 16px;
-    }
-    .quiz-intro .subtitle {
-      font-size: 1.2rem;
-      color: var(--color-gray-500);
-      font-weight: 400;
+      padding: 40px 0 60px;
     }
     .quiz-intro .badge {
       display: inline-block;
       background: var(--accent-green);
       color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 700;
       margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+    .quiz-intro h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .quiz-intro .subtitle {
+      font-size: 1.15rem;
+      color: var(--color-gray-500);
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      border-radius: var(--radius-button);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      background: var(--accent-indigo);
+      color: white;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+    }
+    .btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.3);
+      background: #5b52e8;
+    }
+    .btn-orange {
+      background: var(--accent-orange);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+    }
+    .btn-orange:hover {
+      background: #f6ad2b;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--color-gray-300);
+      box-shadow: none;
+      color: var(--color-gray-700);
+    }
+    .btn-outline:hover {
+      background: var(--color-gray-100);
+      border-color: var(--accent-indigo);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Quiz Card */
+    .glass-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      border: 1px solid var(--color-gray-200);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+    }
+
+    /* Progress */
+    .progress-container {
+      margin-bottom: 32px;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .progress-label .question-counter {
+      color: var(--color-gray-700);
+      font-weight: 600;
+    }
+    .progress-label .progress-percent {
+      color: var(--color-gray-500);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .progress-bar-bg {
+      height: 8px;
+      background: var(--color-gray-200);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-indigo), var(--accent-orange));
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    /* Question */
+    .quiz-question {
+      margin-bottom: 32px;
+    }
+    .quiz-question h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* Options */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option {
+      background: var(--color-gray-50);
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: 16px;
+      padding: 18px 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.15s ease;
+    }
+    .option:hover {
+      background: var(--color-gray-100);
+      border-color: var(--accent-indigo);
+    }
+    .option.selected {
+      background: rgba(79, 70, 229, 0.06);
+      border-color: var(--accent-indigo);
+    }
+    .option input {
+      display: none;
+    }
+    .option-indicator {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--color-gray-400);
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .option.selected .option-indicator {
+      border-color: var(--accent-indigo);
+      background: var(--accent-indigo);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    }
+    .option.selected .option-indicator::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+    }
+    .option-text {
+      font-size: 1.05rem;
+      color: var(--color-gray-800);
+      line-height: 1.4;
+    }
+
+    /* Navigation Buttons */
+    .quiz-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-gray-200);
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--color-gray-500);
+    }
+    .quiz-nav button {
+      background: none;
+      border: none;
+      color: var(--color-gray-500);
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 4px 8px;
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+    .quiz-nav button:hover:not(:disabled) {
+      color: var(--accent-indigo);
+    }
+    .quiz-nav button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .quiz-nav .divider {
+      color: var(--color-gray-300);
+    }
+
+    /* Results Section */
+    .result-card {
+      text-align: center;
+      padding: 16px 8px;
+    }
+    .result-badge {
+      display: inline-block;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-gray-900);
+      margin-bottom: 8px;
+    }
+    .result-percent {
+      font-size: 0.95rem;
+      color: var(--color-gray-500);
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .result-headline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-gray-800);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .result-message {
+      font-size: 1.1rem;
+      color: var(--color-gray-600);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .result-cta-text {
+      font-size: 1.05rem;
+      color: var(--color-gray-700);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .result-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Utility */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+      .glass-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+      }
+      .quiz-question h2 {
+        font-size: 1.25rem;
+      }
+      .option-text {
+        font-size: 0.95rem;
+      }
+      .quiz-nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .result-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .result-buttons .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="nav-logo">
-      <a href="#" onclick="history.back()">← Back to Blog</a>
-      <span style="color: var(--color-gray-400);">|</span>
-      <span style="font-weight: 700; color: var(--color-gray-900);">HibLink <span style="color: var(--accent-orange);">VA Diagnostic</span></span>
+      <a href="#" onclick="history.back(); return false;">← Back to Blog</a>
+      <span class="separator">|</span>
+      <span class="brand">HibLink <span class="brand-accent">VA Diagnostic</span></span>
     </div>
 
+    <!-- Intro Section -->
     <div id="introSection" class="quiz-intro">
       <span class="badge">⚡ VA Readiness Diagnostic</span>
       <h1>Is Your Business Ready for a Virtual Assistant?</h1>
-      <p class="subtitle">2 minutes • 5 questions • Personalized readiness score</p>
-      <div style="margin-top: 32px;">
-        <button class="btn btn-orange" id="startBtn" style="font-size: 1.2rem; padding: 18px 48px;">Start Diagnostic →</button>
-      </div>
+      <p class="subtitle">2 minutes • 5 questions • Personalized report</p>
+      <button class="btn btn-orange" id="startBtn" style="font-size: 1.15rem; padding: 18px 48px;">Start Diagnostic →</button>
     </div>
 
+    <!-- Quiz Section -->
     <div id="quizSection" class="hidden">
       <div class="glass-card">
         <div class="progress-container">
           <div class="progress-label">
-            <span id="questionCounter">Question 1 of 5</span>
-            <span id="progressPercent">0%</span>
+            <span class="question-counter" id="questionCounter">Question 1 of 5</span>
+            <span class="progress-percent" id="progressPercent">0%</span>
           </div>
           <div class="progress-bar-bg">
             <div class="progress-bar-fill" id="progressFill"></div>
@@ -74,21 +420,38 @@
 
         <div id="questionsContainer"></div>
 
-        <div id="navButtons" class="hidden" style="display: flex; gap: 16px; margin-top: 32px;">
-          <button class="btn btn-outline" id="prevBtn">← Previous</button>
-          <button class="btn" id="nextBtn">Next →</button>
+        <div class="quiz-nav" id="navButtons">
+          <button id="prevBtn">← Previous</button>
+          <span class="divider">|</span>
+          <button id="nextBtn">Next →</button>
         </div>
       </div>
     </div>
 
+    <!-- Results Section -->
     <div id="resultSection" class="hidden">
       <div class="glass-card">
         <div class="result-card">
-          <div class="score-display" id="scoreDisplay">0</div>
-          <div class="tier-name" id="tierDisplay">Analyzing...</div>
-          <div class="result-desc" id="recDisplay"></div>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px;">
-            <a href="#" class="btn btn-orange" id="ctaLink">Book a 15-min VA Ops Audit →</a>
+          <div class="result-badge">🚧</div>
+          <div class="result-title" id="tierDisplay">Growth Bottlenecks Identified</div>
+          <div class="result-percent" id="scorePercent">100%</div>
+
+          <div class="result-headline" id="headlineDisplay">
+            Your time is being consumed by admin work—limiting your ability to focus on growth.
+          </div>
+
+          <div class="result-cta-text">
+            <span>👉</span>
+            <span>It's time to delegate smarter, not harder.</span>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--color-gray-900); margin-bottom: 4px;">Book a 15-min VA Ops Audit</div>
+            <div style="font-size: 0.95rem; color: var(--color-gray-500);">→ Get a personalized plan to reclaim your time</div>
+          </div>
+
+          <div class="result-buttons">
+            <a href="#audit" class="btn btn-orange" id="ctaLink">Book Audit</a>
             <button class="btn btn-outline" id="restartBtn">Retake Diagnostic</button>
           </div>
         </div>
@@ -152,41 +515,41 @@
       ];
 
       const resultsTiers = [
-        { 
-          min: 0, 
-          max: 6, 
-          tier: "Ops Ninja", 
+        {
+          min: 0,
+          max: 6,
+          tier: "Ops Ninja",
           headline: "Your operations are solid.",
-          rec: "You'reReady for growth.", 
-          cta: "Scale Your Team", 
-          ctaLink: "#scale" 
+          rec: "You're ready for growth.",
+          cta: "Scale Your Team",
+          ctaLink: "#scale"
         },
-        { 
-          min: 7, 
-          max: 13, 
-          tier: "Growth Ready", 
+        {
+          min: 7,
+          max: 13,
+          tier: "Growth Ready",
           headline: "Admin is starting to hurt.",
-          rec: "Book a 15-min VA Ops Audit to optimize.", 
-          cta: "Book Ops Audit →", 
-          ctaLink: "#audit" 
+          rec: "Book a 15-min VA Ops Audit to optimize.",
+          cta: "Book Ops Audit →",
+          ctaLink: "#audit"
         },
-        { 
-          min: 14, 
-          max: 20, 
-          tier: "System Gaps", 
+        {
+          min: 14,
+          max: 20,
+          tier: "System Gaps",
           headline: "Working IN the business, not ON it.",
-          rec: "You're losing 10-15 hrs/week to admin noise.", 
-          cta: "Explore VA Teams", 
-          ctaLink: "#teams" 
+          rec: "You're losing 10-15 hrs/week to admin noise.",
+          cta: "Explore VA Teams",
+          ctaLink: "#teams"
         },
-        { 
-          min: 21, 
-          max: 26, 
-          tier: "Critical Overwhelm", 
+        {
+          min: 21,
+          max: 26,
+          tier: "Critical Overwhelm",
           headline: "Admin bottleneck is slowing you down.",
-          rec: "Deploy a trained VA in 72 hours.", 
-          cta: "Get Started Now", 
-          ctaLink: "#start" 
+          rec: "Deploy a trained VA in 72 hours.",
+          cta: "Get Started Now",
+          ctaLink: "#start"
         }
       ];
 
@@ -203,16 +566,15 @@
       const progressFill = document.getElementById('progressFill');
       const questionCounter = document.getElementById('questionCounter');
       const progressPercent = document.getElementById('progressPercent');
-      const scoreDisplay = document.getElementById('scoreDisplay');
       const tierDisplay = document.getElementById('tierDisplay');
-      const recDisplay = document.getElementById('recDisplay');
+      const headlineDisplay = document.getElementById('headlineDisplay');
+      const scorePercent = document.getElementById('scorePercent');
       const ctaLink = document.getElementById('ctaLink');
 
       startBtn.addEventListener('click', function() {
         introSection.classList.add('hidden');
         quizSection.classList.remove('hidden');
-        quizSection.querySelector('.glass-card').classList.add('hidden');
-        document.getElementById('navButtons').classList.remove('hidden');
+        currentQIndex = 0;
         renderQuestion(0);
       });
 
@@ -221,20 +583,20 @@
         const pct = Math.round((answered / 5) * 100);
         progressFill.style.width = pct + '%';
         progressPercent.textContent = pct + '%';
-        questionCounter.textContent = `Question ${currentQIndex+1} of 5`;
+        questionCounter.textContent = `Question ${currentQIndex + 1} of 5`;
       }
 
       function renderQuestion(idx) {
         const q = questions[idx];
-        let html = `<div class="quiz-question"><h2>${idx+1}. ${q.text}</h2><div class="options">`;
+        let html = `<div class="quiz-question"><h2>${idx + 1}. ${q.text}</h2><div class="options">`;
         q.options.forEach((opt, optIdx) => {
           const sel = answers[idx] === optIdx;
-          html += `<div class="option ${sel?'selected':''}" data-opt-index="${optIdx}"><div class="option-indicator"></div><span class="option-text">${opt.text}</span><input type="radio" ${sel?'checked':''}></div>`;
+          html += `<div class="option ${sel ? 'selected' : ''}" data-opt-index="${optIdx}"><div class="option-indicator"></div><span class="option-text">${opt.text}</span><input type="radio" name="q${idx}" ${sel ? 'checked' : ''}></div>`;
         });
         html += `</div></div>`;
         questionsContainer.innerHTML = html;
 
-        document.querySelectorAll('.option').forEach(opt => 
+        document.querySelectorAll('.option').forEach(opt =>
           opt.addEventListener('click', function() {
             const parent = this.parentNode;
             parent.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
@@ -242,30 +604,36 @@
             const optIdx = parseInt(this.dataset.optIndex);
             answers[currentQIndex] = optIdx;
             updateProgress();
+            updateNav();
           })
         );
         updateProgress();
+        updateNav();
       }
 
       function updateNav() {
         prevBtn.disabled = currentQIndex === 0;
         const isLast = currentQIndex === 4;
-        nextBtn.classList.toggle('hidden', isLast);
+        nextBtn.textContent = isLast ? 'Finish →' : 'Next →';
         nextBtn.disabled = answers[currentQIndex] === null;
       }
 
       function calcScore() {
-        return answers.reduce((sum, optIdx, i) => 
+        return answers.reduce((sum, optIdx, i) =>
           sum + (optIdx !== null ? questions[i].options[optIdx].weight : 0), 0);
       }
 
       function showResults() {
         const score = calcScore();
         const tier = resultsTiers.find(t => score >= t.min && score <= t.max);
-        scoreDisplay.textContent = score;
-        tierDisplay.innerHTML = `${tier.tier}<br><span style="font-size:1.2rem; font-weight:400; color:var(--color-gray-500);">${tier.headline}</span>`;
-        recDisplay.textContent = tier.rec;
-        ctaLink.textContent = tier.cta + ' →';
+
+        // Update results display
+        tierDisplay.textContent = tier.tier;
+        headlineDisplay.innerHTML = tier.headline;
+        scorePercent.textContent = '100%';
+        ctaLink.textContent = tier.cta;
+        ctaLink.href = tier.ctaLink;
+
         quizSection.classList.add('hidden');
         resultSection.classList.remove('hidden');
       }
@@ -278,27 +646,21 @@
       });
 
       prevBtn.addEventListener('click', () => {
-        if(currentQIndex > 0) {
+        if (currentQIndex > 0) {
           currentQIndex--;
           renderQuestion(currentQIndex);
-          updateNav();
         }
       });
 
       nextBtn.addEventListener('click', () => {
-        if(currentQIndex < 4 && answers[currentQIndex] !== null) {
+        if (answers[currentQIndex] === null) return;
+        if (currentQIndex < 4) {
           currentQIndex++;
           renderQuestion(currentQIndex);
-          updateNav();
+        } else {
+          showResults();
         }
       });
-
-      startBtn.addEventListener('click', () => {
-        currentQIndex = 0;
-        renderQuestion(0);
-      });
-
-      updateNav();
     })();
   </script>
 </body>
