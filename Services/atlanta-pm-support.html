@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlanta Property Management Remote Staffing | Hiblink Tech</title>
+    <meta name="description" content="Hire remote cold callers, VAs, customer support, lead gen, digital marketing, sales closers, SEO specialists & back office for your Atlanta property management firm.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Atlanta Page Specific Styles */
+        .atlanta-hero {
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, oklch(95% 0.02 280) 50%, oklch(96% 0.015 41) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .atlanta-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, oklch(45% 0.22 280 / 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .atlanta-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, oklch(64.6% 0.222 41.116 / 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .atlanta-hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: oklch(45% 0.22 280 / 0.08);
+            border: 1px solid oklch(45% 0.22 280 / 0.15);
+            color: var(--accent-indigo);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+        .hero-badge .pin {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Service Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid var(--color-gray-200);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-indigo), var(--accent-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -8px rgba(0,0,0,0.08);
+            border-color: oklch(45% 0.22 280 / 0.2);
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            background: oklch(45% 0.22 280 / 0.08);
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--color-gray-900);
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--color-gray-600);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .service-num {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-gray-300);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Niche Cards */
+        .niche-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+        .niche-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.2s;
+        }
+        .niche-card:hover {
+            border-color: var(--accent-indigo);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+        .niche-card .niche-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .niche-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--color-gray-900);
+        }
+        .niche-card p {
+            font-size: 0.9rem;
+            color: var(--color-gray-600);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        @media (max-width: 900px) {
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+        .step-card {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid var(--color-gray-200);
+            position: relative;
+            transition: all 0.3s;
+        }
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+        }
+        .step-card:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--color-white);
+            border: 2px solid var(--color-gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--accent-indigo);
+            font-weight: 700;
+            z-index: 2;
+        }
+        @media (max-width: 900px) {
+            .step-card:nth-child(2)::after { display: none; }
+            .step-card:nth-child(4)::after { display: none; }
+        }
+        @media (max-width: 500px) {
+            .step-card::after { display: none !important; }
+        }
+        .step-number-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-indigo), oklch(55% 0.2 300));
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px oklch(45% 0.22 280 / 0.25);
+        }
+        .step-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--color-gray-600);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .step-card.highlight {
+            background: linear-gradient(135deg, oklch(45% 0.22 280 / 0.03), oklch(64.6% 0.222 41.116 / 0.03));
+            border-color: oklch(45% 0.22 280 / 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 36px;
+            border: 1px solid var(--color-gray-200);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            font-size: 4rem;
+            color: oklch(45% 0.22 280 / 0.1);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1;
+        }
+        .testimonial-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-gray-700);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .testimonial-author-info strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--color-gray-900);
+        }
+        .testimonial-author-info span {
+            font-size: 0.85rem;
+            color: var(--color-gray-500);
+        }
+        .testimonial-result {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: oklch(62% 0.19 145 / 0.08);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-green);
+        }
+        .testimonial-result span {
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Location Tags */
+        .locations-section {
+            background: linear-gradient(135deg, var(--color-gray-900) 0%, oklch(20% 0.04 280) 100%);
+            border-radius: 32px;
+            padding: 60px 48px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .locations-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, oklch(45% 0.22 280 / 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .locations-section h2 {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        .locations-section > p {
+            color: oklch(80% 0.02 264);
+            position: relative;
+            z-index: 1;
+        }
+        .location-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .location-tag {
+            background: oklch(100% 0 0 / 0.08);
+            border: 1px solid oklch(100% 0 0 / 0.12);
+            color: oklch(90% 0.01 264);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .location-tag:hover {
+            background: oklch(100% 0 0 / 0.15);
+            border-color: oklch(100% 0 0 / 0.25);
+        }
+        .location-tag.county {
+            background: oklch(64.6% 0.222 41.116 / 0.15);
+            border-color: oklch(64.6% 0.222 41.116 / 0.25);
+            color: oklch(85% 0.05 41);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--accent-indigo) 0%, oklch(40% 0.2 300) 100%);
+            border-radius: 32px;
+            padding: 64px 48px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, oklch(100% 0 0 / 0.08) 0%, transparent 70%);
+        }
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, oklch(64.6% 0.222 41.116 / 0.15) 0%, transparent 70%);
+        }
+        .final-cta h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .final-cta > p {
+            color: oklch(90% 0.02 264);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: oklch(90% 0.02 264);
+        }
+        .cta-feature .check {
+            width: 22px;
+            height: 22px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .final-cta .btn {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+            padding: 18px 44px;
+            background: var(--accent-orange);
+            box-shadow: 0 12px 32px oklch(64.6% 0.222 41.116 / 0.3);
+        }
+        .final-cta .btn:hover {
+            background: oklch(70% 0.23 41);
+            transform: scale(1.03);
+        }
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        .contact-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: oklch(85% 0.02 264);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .contact-option:hover {
+            color: white;
+        }
+
+        /* Section spacing override */
+        .section--xl {
+            padding: 80px 0;
+        }
+        .section--dark {
+            background: var(--color-gray-100);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Glass Navigation -->
+    <nav class="glass">
+        <div class="container">
+            <div class="logo-text"><a href="../index.html" style="text-decoration: none; color: inherit;">HibLink <span class="text-accent-orange">Tech</span></a></div>
+            <div style="display: flex; gap: 12px;">
+                <a href="../va-readiness.html" class="btn" style="padding: 10px 24px; font-size: 1rem;">VA Diagnostic →</a>
+                <a href="../opsreadiness.html" class="btn btn-outline" style="padding: 10px 24px; font-size: 1rem;">Ops Diagnostic →</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="atlanta-hero">
+            <div class="container hero" style="padding-bottom: 100px;">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pin"></span>
+                        Atlanta, Georgia
+                    </div>
+                    <h1>Outsource to Hiblink Tech: <span class="text-accent-orange">Remote Teams</span> for Atlanta Property Managers</h1>
+                    <p style="font-size: 1.25rem; color: var(--color-gray-600); max-width: 700px; line-height: 1.6;">Stop juggling everything yourself. We provide trained remote professionals who integrate directly into your property management workflow — from lead generation to lease renewals.</p>
+                    <div class="cta-buttons" style="justify-content: flex-start; margin-top: 32px;">
+                        <a href="#audit" class="btn btn-orange" style="font-size: 1.1rem; padding: 16px 36px;">Get My Free Workflow Audit</a>
+                        <a href="#services" class="btn btn-outline" style="font-size: 1.1rem; padding: 16px 36px;">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Intro -->
+        <section class="section container" style="margin-top: -60px; position: relative; z-index: 2;">
+            <div class="glass-card" style="padding: 48px;">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">Property Managers in Atlanta: You Don't Have to Do It All</h2>
+                <p style="font-size: 1.1rem; color: var(--color-gray-700); line-height: 1.7; margin-bottom: 20px;">Atlanta property management firms are stretched thin. You juggle maintenance calls, owner relations, tenant screening, leasing, and marketing – all while trying to grow. Hiblink Tech provides remote professionals who work as an extension of your team. No hiring headaches. No long-term contracts. Just scalable support.</p>
+                <div style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: oklch(62% 0.19 145 / 0.06); border-radius: 16px; border-left: 4px solid var(--accent-green);">
+                    <span style="font-size: 1.4rem;">🍑</span>
+                    <p style="margin: 0; font-size: 1rem; color: var(--color-gray-700);">Serving property managers across Metro Atlanta – from <strong>Buckhead</strong> high-rises to <strong>Marietta</strong> single-family portfolios, HOA communities in <strong>Duluth</strong> to Section 8 specialists in <strong>College Park</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 8 Services -->
+        <section class="section container section--xl" id="services">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+                <span style="display: inline-block; padding: 6px 16px; background: oklch(45% 0.22 280 / 0.08); color: var(--accent-indigo); border-radius: 100px; font-weight: 600; font-size: 0.85rem; margin-bottom: 16px;">REMOTE ROLES</span>
+                <h2 style="font-size: 2.4rem;">8 Remote Roles We Fill for Atlanta Property Management Firms</h2>
+                <p style="color: var(--color-gray-600); font-size: 1.1rem;">Each role is trained specifically for property management workflows — not generic VAs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-num">01</span>
+                    <div class="service-icon">📞</div>
+                    <h3>Cold Caller</h3>
+                    <p>Proactively reach out to expired listings, absentee owners, and investor leads. We handle the first touch, qualify prospects, and book appointments for your leasing team.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">02</span>
+                    <div class="service-icon">📋</div>
+                    <h3>Virtual Assistant</h3>
+                    <p>Handle email management, calendar scheduling, document preparation, and data entry. Your local staff focuses on high-value tasks.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">03</span>
+                    <div class="service-icon">💬</div>
+                    <h3>Customer Support</h3>
+                    <p>Manage tenant inquiries, maintenance requests, and owner questions via phone, email, or chat – 24/7 coverage available.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">04</span>
+                    <div class="service-icon">🎯</div>
+                    <h3>Lead Generation</h3>
+                    <p>Pull owner leads from public records, Zillow, and social media. Build targeted lists of potential landlords in specific Atlanta zip codes.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">05</span>
+                    <div class="service-icon">📱</div>
+                    <h3>Digital Marketing Services</h3>
+                    <p>Create property listings, virtual tours, social media ads, and email campaigns to fill vacancies faster. We also manage your Google Business Profile and online reviews.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">06</span>
+                    <div class="service-icon">🤝</div>
+                    <h3>Sales Closer</h3>
+                    <p>For firms that need to win new management contracts. Our closers follow up with warm leads, send proposals, and handle objection handling – you just sign the deal.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">07</span>
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO Specialist</h3>
+                    <p>Improve your own website's ranking for "property management Atlanta" and related terms. We do keyword research, on-page optimization, and local backlinks.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">08</span>
+                    <div class="service-icon">🏢</div>
+                    <h3>Back Office</h3>
+                    <p>Full administrative support: lease renewals, utility transfers, vendor invoice processing, monthly owner statements, and compliance tracking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Customized for Atlanta -->
+        <section class="section--dark">
+            <div class="container section--xl">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+                    <span style="display: inline-block; padding: 6px 16px; background: oklch(64.6% 0.222 41.116 / 0.08); color: var(--accent-orange); border-radius: 100px; font-weight: 600; font-size: 0.85rem; margin-bottom: 16px;">LOCAL EXPERTISE</span>
+                    <h2 style="font-size: 2.4rem;">Customized for Atlanta's Property Management Landscape</h2>
+                    <p style="color: var(--color-gray-600); font-size: 1.1rem;">We understand the unique challenges of the Atlanta market.</p>
+                </div>
+                <div class="niche-grid">
+                    <div class="niche-card">
+                        <div class="niche-icon">🏙️</div>
+                        <h4>High-Volume Apartment Communities</h4>
+                        <p>Need 24/7 lead response and maintenance triage to keep occupancy rates high in competitive submarkets.</p>
+                    </div>
+                    <div class="niche-card">
+                        <div class="niche-icon">🏘️</div>
+                        <h4>HOA & Condo Associations</h4>
+                        <p>Need violation processing, board packet prep, and owner communication handled with precision.</p>
+                    </div>
+                    <div class="niche-card">
+                        <div class="niche-icon">🏠</div>
+                        <h4>Section 8 / Affordable Housing</h4>
+                        <p>Need voucher compliance tracking, inspection scheduling, and tenant documentation management.</p>
+                    </div>
+                    <div class="niche-card">
+                        <div class="niche-icon">✨</div>
+                        <h4>Boutique Firms</h4>
+                        <p>Need a virtual assistant to handle paperwork so owners can focus on growth and client relationships.</p>
+                    </div>
+                    <div class="niche-card">
+                        <div class="niche-icon">🥂</div>
+                        <h4>Luxury / Executive Rentals</h4>
+                        <p>Need white-glove customer support with instant response times and premium tenant experience.</p>
+                    </div>
+                </div>
+                <div class="result-box" style="margin-top: 40px; text-align: center;">
+                    <p style="font-size: 1.15rem; margin: 0;"><strong>Whatever your niche,</strong> we match you with remote staff trained in property management workflows — not generic virtual assistants.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: How It Works -->
+        <section class="section container section--xl">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+                <span style="display: inline-block; padding: 6px 16px; background: oklch(62% 0.19 145 / 0.08); color: var(--accent-green); border-radius: 100px; font-weight: 600; font-size: 0.85rem; margin-bottom: 16px;">SIMPLE PROCESS</span>
+                <h2 style="font-size: 2.4rem;">How It Works for Atlanta Property Managers</h2>
+                <p style="color: var(--color-gray-600); font-size: 1.1rem;">From audit to full-scale support in under 3 weeks.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number-circle">1</div>
+                    <h3>Free Workflow Audit</h3>
+                    <p>We analyze where your team spends time – calls, emails, data entry, marketing, or sales follow-up.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number-circle">2</div>
+                    <h3>Match Specialists</h3>
+                    <p>We recommend roles (e.g., one cold caller + one back office VA) and provide a pilot plan.</p>
+                </div>
+                <div class="step-card highlight">
+                    <div class="step-number-circle">3</div>
+                    <h3>14-Day Pilot</h3>
+                    <p>You pay 50% for two weeks. If it doesn't work, walk away. <strong>No exit fees.</strong></p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number-circle">4</div>
+                    <h3>Scale Up</h3>
+                    <p>Add more roles or hours as your portfolio grows. We handle payroll, training, and QA.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testimonials -->
+        <section class="section--dark">
+            <div class="container section--xl">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+                    <span style="display: inline-block; padding: 6px 16px; background: oklch(45% 0.22 280 / 0.08); color: var(--accent-indigo); border-radius: 100px; font-weight: 600; font-size: 0.85rem; margin-bottom: 16px;">TRUSTED BY PMs</span>
+                    <h2 style="font-size: 2.4rem;">Why Atlanta Property Managers Trust Hiblink Tech</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"We hired a Hiblink Tech cold caller to reach out to 500 absentee owners. In the first month, we signed 3 new management contracts. That paid for the service for a year."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">A</div>
+                            <div class="testimonial-author-info">
+                                <strong>Atlanta Property Manager</strong>
+                                <span>150+ units • Fulton County</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-result">
+                            <span>3 new contracts in 30 days</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Our virtual assistant now handles all tenant screening and lease renewals. I actually have time to inspect properties again. The ROI was obvious within two weeks."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--accent-orange), oklch(60% 0.2 30));">D</div>
+                            <div class="testimonial-author-info">
+                                <strong>Decatur-Based PM</strong>
+                                <span>80+ units • DeKalb County</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-result">
+                            <span>15+ hours saved per week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Service Areas -->
+        <section class="section container section--xl">
+            <div class="locations-section">
+                <h2 style="font-size: 2.4rem; margin-bottom: 12px;">We Serve All of Metro Atlanta</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 8px;">No matter where your properties are, our remote teams work seamlessly with your existing operations.</p>
+                
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: oklch(70% 0.02 264); margin: 32px 0 16px; font-weight: 600;">Cities & Neighborhoods</h4>
+                <div class="location-tags">
+                    <span class="location-tag">Buckhead</span>
+                    <span class="location-tag">Midtown</span>
+                    <span class="location-tag">Decatur</span>
+                    <span class="location-tag">Marietta</span>
+                    <span class="location-tag">Sandy Springs</span>
+                    <span class="location-tag">Alpharetta</span>
+                    <span class="location-tag">Duluth</span>
+                    <span class="location-tag">Douglasville</span>
+                    <span class="location-tag">Smyrna</span>
+                    <span class="location-tag">Roswell</span>
+                    <span class="location-tag">Dunwoody</span>
+                    <span class="location-tag">College Park</span>
+                    <span class="location-tag">Riverdale</span>
+                    <span class="location-tag">Lawrenceville</span>
+                    <span class="location-tag">Norcross</span>
+                    <span class="location-tag">Tucker</span>
+                    <span class="location-tag">Stone Mountain</span>
+                    <span class="location-tag">Kennesaw</span>
+                    <span class="location-tag">Woodstock</span>
+                    <span class="location-tag">McDonough</span>
+                </div>
+
+                <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: oklch(70% 0.02 264); margin: 32px 0 16px; font-weight: 600;">Counties</h4>
+                <div class="location-tags">
+                    <span class="location-tag county">Fulton</span>
+                    <span class="location-tag county">DeKalb</span>
+                    <span class="location-tag county">Cobb</span>
+                    <span class="location-tag county">Gwinnett</span>
+                    <span class="location-tag county">Clayton</span>
+                    <span class="location-tag county">Douglas</span>
+                    <span class="location-tag county">Rockdale</span>
+                    <span class="location-tag county">Henry</span>
+                    <span class="location-tag county">Fayette</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Final CTA -->
+        <section class="section container section--xl" id="audit">
+            <div class="final-cta">
+                <h2>Start Your Atlanta Pilot Today</h2>
+                <p>We know you're skeptical. That's why we offer a free 30-minute workflow audit — no obligation. We'll show you exactly which roles would save you the most time and money.</p>
+                <div class="cta-features">
+                    <div class="cta-feature"><span class="check">✓</span> Custom staffing plan</div>
+                    <div class="cta-feature"><span class="check">✓</span> Similar PM case studies</div>
+                    <div class="cta-feature"><span class="check">✓</span> 14-day pilot at 50% off</div>
+                </div>
+                <a href="mailto:hello@hiblinktech.com" class="btn btn-orange">Get My Free Workflow Audit</a>
+                <div class="contact-options">
+                    <a href="mailto:hello@hiblinktech.com" class="contact-option">✉️ hello@hiblinktech.com</a>
+                    <a href="https://wa.me/251911234567" class="contact-option">💬 WhatsApp</a>
+                    <span class="contact-option">📞 +1 (404) 555-0100</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top: 1px solid var(--color-gray-200); margin-top: 40px;">
+        <div class="container" style="padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="text-align: left;">
+                <p style="color: var(--color-gray-700); font-weight: 600;">© 2026 HibLink Tech — The Ecommerce Operations Partner</p>
+                <p style="color: var(--color-gray-500); margin-top: 4px; font-size: 0.9rem;">Addis Ababa, Ethiopia • Serving US Ecommerce & Property Management Brands</p>
+            </div>
+            <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+                <a href="../index.html" style="color: var(--color-gray-600); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Home</a>
+                <a href="atlanta-pm-support.html" style="color: var(--accent-indigo); text-decoration: none; font-size: 0.9rem; font-weight: 600;">Atlanta PM Staffing</a>
+                <a href="../opsreadiness.html" style="color: var(--color-gray-600); text-decoration: none; font-size: 0.9rem;">Ops Diagnostic</a>
+                <a href="../va-readiness.html" style="color: var(--color-gray-600); text-decoration: none; font-size: 0.9rem;">VA Diagnostic</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Hiblink Tech",
+        "description": "Remote staffing for Atlanta property managers: cold callers, VAs, customer support, lead gen, digital marketing, sales closers, SEO, back office.",
+        "url": "https://hiblinktech.com/Services/atlanta-pm-support/",
+        "telephone": "+1-404-555-0100",
+        "areaServed": {
+            "@type": "City",
+            "name": "Atlanta Metropolitan Area",
+            "containedInPlace": {
+                "@type": "State",
+                "name": "Georgia"
+            }
+        },
+        "serviceType": [
+            "Cold Caller",
+            "Virtual Assistant",
+            "Customer Support",
+            "Lead Generation",
+            "Digital Marketing Services",
+            "Sales Closer",
+            "SEO Specialist",
+            "Back Office"
+        ],
+        "priceRange": "$$"
+    }
+    </script>
+</body>
+</html>
